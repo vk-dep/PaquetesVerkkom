@@ -1,7 +1,7 @@
 import React from 'react';
 import { Button } from '../ui/Button';
 import { Link, useLocation } from 'react-router-dom'; // Importamos useLocation
-import '../styles/Header.css';
+import '../styles/header.css';
 
 export function Header() {
   const location = useLocation();
