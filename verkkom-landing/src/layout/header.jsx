@@ -1,8 +1,11 @@
 import React from 'react';
 import { Button } from '../ui/Button';
+import { Link, useLocation } from 'react-router-dom'; // Importamos useLocation
 import '../styles/Header.css';
 
 export function Header() {
+  const location = useLocation();
+  const isHomePage = location.pathname === '/';
 
   // Función de contacto general para el Header
   const handleContratarGeneral = () => {
@@ -20,17 +23,16 @@ export function Header() {
     <header className="vk-header">
       <div className="header-container">
         <div className="logo">
-          <span className="logo-v">V</span>
-          <span className="logo-text">Verkkom</span>
+          <span className="logo-v">JYB </span>
+          <span className="logo-text">WIFI</span>
         </div>
 
         <nav className="nav-menu">
           <a href="/">Inicio</a>
-          <a href="#caracteristicas">Características</a>
-          <a href="#paquetes">Paquetes</a>
-          <a href="#soporte">Soporte</a>
+          <a href="/#paquetes">Paquetes</a>
+          <a href="/#soporte">Soporte</a>
           {/* Si usas React Router, recuerda que este puede ser un <Link to="/catalogo"> */}
-          <a href="/catalogo" className="nav-highlight">Catálogo Completo</a>
+          <Link to="/catalogo" className="nav-highlight">Paquetes Completos</Link>
         </nav>
 
         <div className="header-actions">

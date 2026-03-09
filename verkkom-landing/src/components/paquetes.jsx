@@ -21,11 +21,11 @@ export function Paquetes() {
       <div className="pricing-header">
         <div className="pricing-tag">
           <Sparkle size={18} fill="currentColor" className="sparkle-icon" />
-          <span>PLANES VERKKOM</span>
+          <span>PLANES JYB WIFI</span>
         </div>
         <h2>Elige el poder de tu <span>Conexión</span></h2>
         <p className="pricing-subtitle">
-          Internet diseñado para la zona industrial y residencial de Apodaca y Pesquería.
+          Internet diseñado para la zona industrial y residencial de Pesquería y Salinas.
         </p>
       </div>
 

@@ -30,10 +30,10 @@ export function Beneficios() {
   return (
     <section className="vk-features-dark">
       <div className="features-inner">
-        
+
         <div className="features-header">
           <span className="features-tag">✦ QUÉ OFRECEMOS</span>
-          <h2>Beneficios de <br /><span>Verkkom</span></h2>
+          <h2>Beneficios de <br /><span>JYB WIFI</span></h2>
           <p className="features-tagline">
             Tecnología industrial de alta capacidad, con la garantía y la cercanía que tu empresa y hogar necesitan en NL.
           </p>

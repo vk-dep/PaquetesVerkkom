@@ -2,6 +2,7 @@ import React from 'react';
 import { Button } from '../ui/Button';
 import { ArrowRight, MapPin } from 'lucide-react';
 import '../styles/Hero.css';
+import { MapaCobertura } from '../components/cobertura';
 
 export function Hero() {
   const handleContratarGeneral = () => {
@@ -15,6 +16,14 @@ export function Hero() {
     window.open(url, '_blank');
   };
 
+  // Función para manejar el salto a la sección
+  const scrollToCobertura = () => {
+    const section = document.getElementById('cobertura');
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="vk-hero">
       <div className="hero-overlay"></div> {/* Capa de oscuridad extra */}
@@ -26,7 +35,7 @@ export function Hero() {
           </h1>
 
           <p className="hero-description">
-            Conectamos tu mundo, sin límites. <strong>Verkkom</strong>: rapidez para
+            Conectamos tu mundo, sin límites. <strong>JYB WIFI</strong> rapidez para
             hogares y empresas industriales donde otros no llegan.
           </p>
 
@@ -35,7 +44,12 @@ export function Hero() {
               Contratar Ahora <ArrowRight size={20} />
             </Button>
 
-            <Button variant="outline" className="btn-hero-sec">
+            <Button
+              variant="outline"
+              className="btn-hero-sec"
+              onClick={scrollToCobertura}
+            >
+
               <MapPin size={18} /> Ver Cobertura
             </Button>
           </div>

@@ -1,0 +1,120 @@
+/* --- SECCIÓN CON RESPIRO --- */
+.vk-coverage-section {
+    padding: 80px 10%;
+    /* Ajustado: ni 120 ni 60 */
+    background-color: #0e1f3b;
+    /* Azul profundo oficial */
+}
+
+.coverage-wrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1.3fr;
+    gap: 50px;
+    align-items: center;
+}
+
+/* --- TEXTOS EQUILIBRADOS --- */
+.tag-industrial {
+    color: #02f695;
+    font-weight: 800;
+    letter-spacing: 2px;
+    font-size: 0.75rem;
+    margin-bottom: 12px;
+}
+
+.main-title {
+    color: #ffffff;
+    font-size: 3.2rem;
+    /* Punto medio entre 2.4 y 4.0 */
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 20px;
+}
+
+.neon-text {
+    color: #02f695;
+    /* Verde neón para el resalte */
+}
+
+.main-desc {
+    color: rgba(255, 255, 255, 0.85);
+    font-size: 1.1rem;
+    /* Más legible que 0.95 */
+    line-height: 1.6;
+    margin-bottom: 40px;
+    max-width: 480px;
+}
+
+/* --- CARDS DE STATUS --- */
+.status-item {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    padding: 15px 25px;
+    /* Proporción ideal de card */
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    margin-bottom: 12px;
+}
+
+.status-item.active {
+    border-left: 4px solid #02f695;
+}
+
+.status-item.soon {
+    border-left: 4px solid #37a4dc;
+    opacity: 0.8;
+}
+
+.status-item h4 {
+    color: #ffffff;
+    font-size: 1.15rem;
+    margin: 0;
+    font-weight: 700;
+}
+
+.status-item p {
+    color: #02f695;
+    font-weight: 800;
+    font-size: 0.75rem;
+    margin-top: 2px;
+}
+
+.soon-label {
+    color: #37a4dc !important;
+}
+
+/* --- EL MAPA --- */
+.map-visual-container {
+    height: 500px;
+    /* Tamaño ideal para laptop */
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+.map-view {
+    width: 100%;
+    height: 100%;
+}
+
+/* Marcadores */
+.marker-verkkom {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.marker-verkkom.active {
+    background: #02f695;
+}
+
+.marker-verkkom.soon {
+    background: #37a4dc;
+}

@@ -18,11 +18,11 @@ export function Catalogo() {
     // --- ANTENA ---
     { id: 1, tipo: 'antena', tecnologia: 'ANTENA', name: "Antena Start", speed: "30 Mbps", price: "400", features: ["1er Mes GRATIS", "Instalación: $1,000"], badge: "Económico" },
     { id: 2, tipo: 'antena', tecnologia: 'ANTENA', name: "Antena Plus", speed: "40 Mbps", price: "500", features: ["1er Mes GRATIS", "Instalación: $1,000"], badge: "Popular", destacado: true },
-    { id: 3, tipo: 'antena', tecnologia: 'ANTENA', name: "Antena Max", speed: "50 Mbps", price: "600", features: ["1er Mes GRATIS", "Instalación: $1,000"], badge: "Pro"},
+    { id: 3, tipo: 'antena', tecnologia: 'ANTENA', name: "Antena Max", speed: "50 Mbps", price: "600", features: ["1er Mes GRATIS", "Instalación: $1,000"], badge: "Pro" },
 
     // --- CÁMARAS (PRIMERA FILA: FIBRA) ---
-    { id: 9, tipo: 'camara', tecnologia: 'FIBRA', name: "Fibra + Seg", speed: "100 Mbps", price: "799", features: ["1 Cámara Incluida", "Activación s/ mensualidad"], badge: "Seguridad"},
-    { id: 10, tipo: 'camara', tecnologia: 'FIBRA', name: "Fibra Vig", speed: "150 Mbps", price: "899", features: ["2 Cámaras Incluidas", "Activación s/ mensualidad"], badge: "Doble",destacado: true },
+    { id: 9, tipo: 'camara', tecnologia: 'FIBRA', name: "Fibra + Seg", speed: "100 Mbps", price: "799", features: ["1 Cámara Incluida", "Activación s/ mensualidad"], badge: "Seguridad" },
+    { id: 10, tipo: 'camara', tecnologia: 'FIBRA', name: "Fibra Vig", speed: "150 Mbps", price: "899", features: ["2 Cámaras Incluidas", "Activación s/ mensualidad"], badge: "Doble", destacado: true },
     { id: 11, tipo: 'camara', tecnologia: 'FIBRA', name: "Fibra Blindaje", speed: "200 Mbps", price: "1199", features: ["4 Cámaras Incluidas", "Activación s/ mensualidad"], badge: "Total" },
 
     // --- CÁMARAS (SEGUNDA FILA: ANTENA) ---
@@ -43,7 +43,7 @@ export function Catalogo() {
       <header className="catalogo-hero">
         <div className="tag-neon">
           <Sparkle size={16} fill="currentColor" />
-          <span>CATÁLOGO VERKKOM</span>
+          <span>CATÁLOGO JYB WIFI</span>
         </div>
         <h1>Planes Sin <span>Excusas</span></h1>
       </header>
@@ -71,9 +71,9 @@ export function Catalogo() {
               <h3>{p.name}</h3>
               <div className="cat-price"><span>$</span>{p.price}</div>
               <p className="cat-speed">{p.speed}</p>
-              
+
               <ul className="cat-list">
-                {p.features.map((feat, i) => <li key={i}><Check size={14} color="#02f695"/> {feat}</li>)}
+                {p.features.map((feat, i) => <li key={i}><Check size={14} color="#02f695" /> {feat}</li>)}
               </ul>
 
               <Button variant={p.destacado ? 'primary' : 'outline'} className="mt-auto">

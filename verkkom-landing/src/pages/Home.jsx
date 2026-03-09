@@ -2,6 +2,7 @@ import React from 'react';
 import { Hero } from '../components/hero';
 import { Beneficios } from '../components/beneficios'
 import { Paquetes } from '../components/paquetes'
+import { MapaCobertura } from '../components/cobertura';
 import { Soporte } from '../components/soporte';
 // Importa las demás cuando las crees:
 // import { QueOfrecemos } from '../components/QueOfrecemos';
@@ -12,6 +13,7 @@ export function Home() {
       <Hero />
       <Beneficios />
       <Paquetes />
+      <MapaCobertura />
       <Soporte />
     </div>
   );
