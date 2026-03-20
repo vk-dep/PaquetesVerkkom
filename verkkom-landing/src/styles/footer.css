@@ -1,150 +1,192 @@
-.vk-footer-final {
-  background-color: #164075; /* El azul profundo que le da autoridad */
+.vk-footer-premium {
+  background-color: #0b1629; /* Azul medianoche (el mismo de tu Hero/Header) */
   color: #ffffff;
-  padding: 80px 10% 40px;
+  padding: 80px 8% 40px;
   position: relative;
   overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* El detalle "bonito": una línea de luz verde neón arriba */
-.footer-top-gradient {
+.footer-glow-divider {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(90deg, transparent, #02f695, transparent);
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #02f695, #37a4dc, transparent);
+  opacity: 0.6;
 }
 
-.footer-content {
+.footer-main-container {
   display: grid;
-  grid-template-columns: 2fr 1fr 1fr;
-  gap: 60px;
-  max-width: 1200px;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 80px;
+  max-width: 1300px;
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
-/* Estilo del Logo en el Footer */
-.logo-main {
+/* --- BRANDING --- */
+.footer-logo {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 20px;
+  gap: 12px;
+  margin-bottom: 25px;
 }
 
-.v-bold {
-  background-color: #02f695;
-  color: #164075;
+.logo-v {
+  background: #02f695;
+  color: #0b1629;
   font-weight: 900;
-  padding: 5px 12px;
-  border-radius: 4px;
+  padding: 6px 14px;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  box-shadow: 0 0 15px rgba(2, 246, 149, 0.3);
 }
 
-.v-name {
-  font-size: 1.5rem;
+.logo-text {
+  font-size: 1.4rem;
   font-weight: 900;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
 }
 
-.brand-tagline {
-  opacity: 0.7;
+.footer-description {
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.95rem;
   line-height: 1.6;
-  max-width: 300px;
+  max-width: 350px;
   margin-bottom: 30px;
 }
 
-/* Social Pills */
-.social-pills {
+/* --- SOCIAL PILLS --- */
+.footer-social-group {
   display: flex;
-  gap: 12px;
+  gap: 15px;
 }
 
-.social-pill {
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.05);
+.social-link {
+  width: 45px;
+  height: 45px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
   display: flex;
   align-items: center;
   justify-content: center;
   color: white;
-  transition: all 0.3s ease;
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.social-pill:hover {
+.social-link:hover {
   background: #02f695;
-  color: #164075;
-  transform: translateY(-5px);
+  color: #0b1629;
+  transform: translateY(-8px);
+  box-shadow: 0 10px 20px rgba(2, 246, 149, 0.2);
 }
 
-/* Grupos de Links */
-.footer-links-group h4 {
-  color: #02f695; /* Títulos en verde para que resalten */
+/* --- COLUMNAS DE LINKS --- */
+.footer-title {
+  color: #02f695;
   text-transform: uppercase;
   font-size: 0.8rem;
-  letter-spacing: 2px;
-  margin-bottom: 25px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
 }
 
-.footer-links-group ul {
+.footer-list {
   list-style: none;
   padding: 0;
 }
 
-.footer-links-group li {
-  margin-bottom: 15px;
-  font-size: 0.9rem;
-  opacity: 0.8;
+.footer-list li {
+  margin-bottom: 18px;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.7);
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 12px;
 }
 
-.footer-links-group a {
-  color: white;
+.icon-blue { color: #37a4dc; }
+.icon-green { color: #02f695; }
+
+.footer-link, .footer-link-btn {
+  color: inherit;
   text-decoration: none;
-  transition: opacity 0.2s;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: inherit;
+  font-family: inherit;
+  transition: color 0.3s;
 }
 
-.footer-links-group a:hover {
-  opacity: 1;
-  text-decoration: underline;
-}
-
-/* Firma de Studio JYB */
-.footer-signature {
-  margin-top: 80px;
-  text-align: center;
-}
-
-.signature-line {
-  width: 100%;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.1);
-  margin-bottom: 30px;
-}
-
-.footer-signature p {
-  font-size: 0.8rem;
-  opacity: 0.5;
-  letter-spacing: 1px;
-}
-
-.footer-signature strong {
+.footer-link:hover, .footer-link-btn:hover {
   color: #02f695;
 }
 
-/* Responsivo para móviles/tablets */
-@media (max-width: 992px) {
-  .vk-features-dark {
-    padding: 100px 5%;
+.footer-status {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background: rgba(2, 246, 149, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(2, 246, 149, 0.1);
+}
+
+.footer-status span {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: #02f695;
+}
+
+/* --- SIGNATURE --- */
+.footer-bottom {
+  margin-top: 80px;
+}
+
+.footer-bottom-line {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.05) 50%, rgba(255, 255, 255, 0) 100%);
+  margin-bottom: 30px;
+}
+
+.footer-legal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.footer-legal strong { color: rgba(255, 255, 255, 0.6); }
+
+.dev-signature span {
+  color: #02f695;
+  font-weight: 700;
+}
+
+/* RESPONSIVO */
+@media (max-width: 968px) {
+  .footer-main-container {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
   }
-  .features-header h2 {
-    font-size: 3rem;
+  .footer-logo, .footer-description, .footer-social-group, .footer-list li, .footer-link, .footer-link-btn {
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .feature-card {
-    padding: 40px 30px;
+  .footer-legal {
+    flex-direction: column;
+    gap: 15px;
   }
 }

@@ -1,136 +1,161 @@
-/* src/styles/Hero.css */
-
-:root {
-  /* Definimos la altura aproximada de tu header compacto para los cálculos */
-  --header-height: 80px;
-}
-
 .vk-hero {
-  position: relative;
-  width: 100%;
+  background-color: #0b1629;
+  background-image: radial-gradient(rgba(2, 246, 149, 0.04) 1px, transparent 1px);
+  background-size: 50px 50px;
   min-height: 100vh;
-  /* Ocupa toda la pantalla para mayor impacto */
   display: flex;
   align-items: center;
-  /* Centrado vertical del contenido */
-
-  /* --- SOLUCIÓN A LA SIMETRÍA --- */
-  /* Le damos un padding superior igual a la altura del header + un extra de "respiro" */
-  padding-top: calc(var(--header-height) + 40px);
-  padding-bottom: 60px;
-
-  /* El fondo se mantiene con tu imagen y degradado */
-  background-image:
-    linear-gradient(90deg,
-      rgba(14, 31, 59, 0.98) 0%,
-      rgba(14, 31, 59, 0.8) 50%,
-      rgba(14, 31, 59, 0.4) 100%),
-    url('../assets/img/fondoVerkkom.png');
-
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden; 
+  width: 100%;
+  padding-top: 80px;
 }
 
-.hero-container {
-  width: 100%;
+.vk-hero-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 10%;
-  z-index: 10;
+  padding: 0 5%;
+  width: 100%;
+  position: relative;
+  z-index: 20;
 }
 
-.hero-content {
-  max-width: 750px;
-  /* Añadimos un pequeño margen superior interno para empujar el texto 
-     hacia abajo y que no compita con el menú visualmente */
-  margin-top: -20px;
+.vk-hero-content {
+  max-width: 800px; /* Aumentado para dar espacio al nuevo tamaño de letra */
 }
 
-.hero-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
+.vk-hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(2, 246, 149, 0.08);
+  color: #02f695 !important;
+  padding: 8px 18px;
+  border-radius: 4px;
+  font-size: 0.75rem;
   font-weight: 800;
-  line-height: 1.1;
-  margin-bottom: 30px;
-  color: #f1f5f9;
-  /* Más espacio entre título y descripción */
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+  border-left: 3px solid #02f695;
 }
 
-.hero-title span {
-  color: #02f695;
-  /* Verde Neón para resaltar Nuevo León */
-  display: block;
+/* TÍTULO MÁS GRANDE E IMPACTANTE */
+.vk-hero-content h1 {
+  /* Tamaño aumentado: mínimo 3rem, máximo 5.5rem según pantalla */
+  font-size: clamp(3rem, 10vw, 5.5rem); 
+  font-weight: 900;
+  line-height: 0.9;
+  letter-spacing: -3px;
+  margin-bottom: 25px;
+  color: #ffffff !important;
+  text-transform: uppercase;
 }
 
-.hero-description {
-  font-size: 1.25rem;
-  color: #f1f5f9;
+.vk-hero-content h1 span {
+  color: #02f695 !important;
+  text-shadow: 0 0 40px rgba(2, 246, 149, 0.3);
+}
+
+.vk-hero-content p {
+  font-size: 1.2rem;
   line-height: 1.6;
-  opacity: 0.9;
-  margin-bottom: 40px;
-  max-width: 550px;
+  color: rgba(255, 255, 255, 0.6) !important;
+  max-width: 500px;
+  margin-bottom: 50px;
 }
 
-.hero-description strong {
-  color: #37a4dc;
-  /* Azul Verkkom */
-  font-weight: 700;
-}
-
-/* --- Botones --- */
-.hero-actions {
+.vk-hero-btns {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
+  gap: 25px;
 }
 
-.btn-hero-main {
-  padding: 18px 35px !important;
-  font-size: 1.1rem !important;
+.btn-hero-main, .btn-hero-sec {
+  padding: 18px 40px !important; /* Botones un poco más robustos */
+  font-size: 0.9rem !important;
+  font-weight: 900 !important;
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
-.btn-hero-sec {
-  border-color: rgba(255, 255, 255, 0.3) !important;
-  color: #ffffff !important;
-  padding: 18px 35px !important;
-}
-
-.btn-hero-sec:hover {
-  background: rgba(255, 255, 255, 0.1) !important;
-  border-color: #ffffff !important;
-}
-
-/* --- Efecto de transición inferior --- */
-.hero-bottom-gradient {
+/* VISUAL Y RESPLANDORES */
+.vk-hero-visual {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  background: linear-gradient(to top, #0e1f3b, transparent);
+  right: 0;
+  top: 0;
+  width: 55%;
+  height: 100%;
   z-index: 5;
 }
 
-/* Responsivo para móviles */
-@media (max-width: 768px) {
-  .vk-hero {
-    min-height: 80vh;
-    padding: 0 5%;
-    background-position: center;
-    /* Centramos la antena en móvil */
-  }
+.hero-img-mask {
+  width: 100%;
+  height: 100%;
+  mask-image: linear-gradient(to left, black 30%, transparent 95%);
+  -webkit-mask-image: linear-gradient(to left, black 30%, transparent 95%);
+}
 
-  .hero-title {
-    font-size: 2.5rem;
-  }
+.hero-main-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 80% center;
+  filter: brightness(0.4) contrast(1.1);
+}
 
-  .hero-actions {
-    flex-direction: column;
-  }
+.hero-main-glow {
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(2, 246, 149, 0.1) 0%, transparent 70%);
+  filter: blur(100px);
+  z-index: 2;
+  pointer-events: none;
+}
 
-  .hero-actions button {
-    width: 100%;
-  }
+/* PIPS FLOTANTES */
+.floating-ui {
+  position: absolute;
+  background: rgba(11, 22, 41, 0.85);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(2, 246, 149, 0.2);
+  padding: 14px 24px;
+  border-radius: 8px;
+  color: #ffffff !important;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.8rem;
+  font-weight: 800;
+  z-index: 30;
+  animation: floatMove 6s ease-in-out infinite;
+}
+
+.item-1 { top: 20%; right: 15%; }
+.item-2 { bottom: 30%; right: 25%; animation-delay: 3s; }
+
+@keyframes floatMove {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.scan-line {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 1px;
+  background: linear-gradient(to right, transparent, rgba(2, 246, 149, 0.1), transparent);
+  animation: scan 10s linear infinite;
+}
+
+@keyframes scan { from { top: 0%; } to { top: 100%; } }
+
+/* RESPONSIVO */
+@media (max-width: 968px) {
+  .vk-hero-container { text-align: center; }
+  .vk-hero-content { max-width: 100%; }
+  .vk-hero-btns { justify-content: center; flex-direction: column; }
+  .vk-hero-visual { position: relative; width: 100%; height: 350px; margin-top: 40px; }
+  .hero-img-mask { mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent); }
 }

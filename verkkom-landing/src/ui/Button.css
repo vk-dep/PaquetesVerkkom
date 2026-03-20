@@ -1,65 +1,9 @@
-.vk-btn {
-  padding: 14px 28px;
-  border-radius: 12px;
-  font-weight: 800;
-  cursor: pointer;
-  transition: 0.3s;
-  border: none;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.vk-btn.primary {
-  background-color: #02f695; /* Verde oficial */
-  color: #164075;
-}
-
-.vk-btn.outline {
-  background: transparent;
-  color: white;
-  border: 2px solid #37a4dc;
-}
-
-/* --- HOVER PARA EL BOTÓN VERDE (PRIMARY) --- */
-.vk-btn.primary:hover {
-  background-color: #00e087; /* Un verde un poco más oscuro al tocarlo */
-  transform: translateY(-3px); /* Se eleva un poquito */
-  box-shadow: 0 10px 20px rgba(2, 246, 149, 0.4); /* Sombra verde brillante */
-}
-
-/* --- HOVER PARA EL BOTÓN AZUL (OUTLINE) --- */
-.vk-btn.outline:hover {
-  background-color: rgba(55, 164, 220, 0.1); /* Un tinte azul muy suave de fondo */
-  border-color: #02f695; /* El borde cambia al verde de Verkkom */
-  color: #02f695; /* El texto también cambia a verde */
-  transform: translateY(-3px);
-}
-
-/* --- EFECTO AL HACER CLIC (ACTIVE) --- */
-.vk-btn:active {
-  transform: translateY(-1px); /* Se hunde un poquito al presionarlo */
-}
 /* src/ui/Button.css */
-
-.vk-btn.deep {
-  /* Usamos el azul real para que resalte sobre el blanco del header */
-  background-color:  #2d6ab0;; 
-  color: #ffffff;
-  padding: 8px 22px; /* Tamaño compacto para el header */
-  font-size: 0.9rem;
-  font-weight: 600;
-  border-radius: 6px; /* Bordes ligeramente redondeados, estilo minimalista */
-  border: none;
-  transition: background-color 0.2s ease;
+.vk-btn {
+  padding: 14px 28px; border-radius: 12px; font-weight: 800; cursor: pointer;
+  transition: 0.3s; border: none; display: inline-flex; align-items: center; gap: 10px;
 }
-
-.vk-btn.deep:hover {
-  /* Cambio de color sutil al pasar el mouse */
-  background-color: #0056b3; 
-  cursor: pointer;
-}
-
-.vk-btn.deep:active {
-  background-color: #004085;
-}
+.vk-btn.primary { background-color: #02f695; color: #164075; }
+.vk-btn.primary:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(2, 246, 149, 0.4); }
+.vk-btn.outline { background: transparent; color: white; border: 2px solid #37a4dc; }
+.vk-btn.outline:hover { border-color: #02f695; color: #02f695; transform: translateY(-3px); }

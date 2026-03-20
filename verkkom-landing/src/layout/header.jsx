@@ -1,50 +1,58 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { Menu, X, Wifi } from 'lucide-react';
 import { Button } from '../ui/Button';
-import { Link, useLocation } from 'react-router-dom'; // Importamos useLocation
 import '../styles/header.css';
 
 export function Header() {
-  const location = useLocation();
-  const isHomePage = location.pathname === '/';
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Función de contacto general para el Header
-  const handleContratarGeneral = () => {
-    // IMPORTANTE: Sin espacios para que funcione en todos los navegadores
-    const telefono = "5218123921000";
-    const mensaje = "¡Hola Verkkom! Vengo de su sitio web y me interesa contratar su servicio de internet. ¿Me podrían dar más información?";
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-    // Codificamos el mensaje para que sea válido en una URL
-    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, '_blank');
-  };
+  const closeMenu = () => setIsOpen(false);
 
   return (
-    <header className="vk-header">
-      <div className="header-container">
-        <div className="logo">
-          <span className="logo-v">JYB </span>
-          <span className="logo-text">WIFI</span>
-        </div>
+    <header className={`vk-header-wrapper ${scrolled ? 'is-scrolled' : ''}`}>
+      <div className="vk-header-container">
+        
+        {/* IZQUIERDA: LOGO */}
+        <Link to="/" className="vk-logo" onClick={closeMenu}>
+          <Wifi size={24} className="logo-icon" />
+          <span className="logo-text">VERK<span>KOM</span></span>
+        </Link>
 
-        <nav className="nav-menu">
-          <a href="/">Inicio</a>
-          <a href="/#paquetes">Paquetes</a>
-          <a href="/#soporte">Soporte</a>
-          {/* Si usas React Router, recuerda que este puede ser un <Link to="/catalogo"> */}
-          <Link to="/catalogo" className="nav-highlight">Paquetes Completos</Link>
+        {/* CENTRO: NAVEGACIÓN DESKTOP */}
+        <nav className="vk-nav-desktop">
+          <NavLink to="/" end>Inicio</NavLink>
+          <NavLink to="/catalogo">Planes</NavLink>
+          <NavLink to="/nosotros">¿Quiénes Somos?</NavLink>
         </nav>
 
-        <div className="header-actions">
-          {/* Cambiamos el onClick para que llame a la función general */}
-          <Button
-            variant="primary"
-            onClick={handleContratarGeneral}
-            className="btn-header"
-          >
-            Contratar
+        {/* DERECHA: ACCIONES */}
+        <div className="vk-header-actions">
+          <Button variant="primary" className="btn-contratar-header">
+            CONTRATAR
           </Button>
+          
+          <button className="hamburger-btn" onClick={() => setIsOpen(!isOpen)}>
+            {isOpen ? <X size={28} /> : <Menu size={28} />}
+          </button>
         </div>
+      </div>
+
+      {/* MENÚ MÓVIL (CORREGIDO) */}
+      <div className={`vk-mobile-overlay ${isOpen ? 'active' : ''}`}>
+        <nav className="vk-nav-mobile">
+          <NavLink to="/" onClick={closeMenu}>Inicio</NavLink>
+          <NavLink to="/catalogo" onClick={closeMenu}>Planes</NavLink>
+          <NavLink to="/nosotros" onClick={closeMenu}>¿Quiénes Somos?</NavLink>
+          <Button variant="primary" className="w-full mt-4" onClick={closeMenu}>CONTRATAR</Button>
+        </nav>
       </div>
     </header>
   );

@@ -1,52 +1,50 @@
 import React from 'react';
-import { Card } from '../ui/Card'; // Importamos el componente reutilizable
-import { Zap, ShieldCheck, Globe, History, ZapOff } from 'lucide-react';
+import { Zap, History, ZapOff, Globe } from 'lucide-react';
 import '../styles/Beneficios.css';
 
 export function Beneficios() {
   const benefits = [
     {
-      icon: <Zap size={34} />,
+      icon: <Zap size={30} />,
       title: "Home to Home",
-      desc: "Fibra óptica pura desde nuestra central hasta tu equipo. Sin intermediarios, sin pérdida de señal, solo velocidad real."
+      desc: "Fibra óptica pura desde nuestra central hasta tu equipo sin pérdida de señal."
     },
     {
-      icon: <History size={34} />,
+      icon: <History size={30} />,
       title: "Regla 24 Horas",
-      desc: "Si no resolvemos tu reporte técnico en menos de 24 horas, abonamos los días proporcionales a tu cuenta automáticamente."
+      desc: "Si no resolvemos tu reporte en menos de 24 horas, abonamos días a tu cuenta."
     },
     {
-      icon: <ZapOff size={34} />,
-      title: "Baja Latencia Industrial",
-      desc: "Infraestructura propia de alto rendimiento, ideal para gaming, streaming y procesos industriales exigentes."
+      icon: <ZapOff size={30} />,
+      title: "Baja Latencia",
+      desc: "Infraestructura propia de alto rendimiento para gaming y streaming 4K."
     },
     {
-      icon: <Globe size={34} />,
-      title: "Cobertura en Nuevo León",
-      desc: "Especialistas en la conectividad de Apodaca, Pesquería y zonas industriales. Llegamos donde otros no pueden."
+      icon: <Globe size={30} />,
+      title: "Cobertura Total",
+      desc: "Llegamos donde otros no pueden en Pesquería, Zuazua y Salinas."
     }
   ];
 
   return (
-    <section className="vk-features-dark">
+    <section className="vk-features-clean">
       <div className="features-inner">
 
         <div className="features-header">
-          <span className="features-tag">✦ QUÉ OFRECEMOS</span>
-          <h2>Beneficios de <br /><span>JYB WIFI</span></h2>
+          <span className="features-tag">✦ Por qué elegirnos</span>
+          <h2>Beneficios de <br /><span>VERKKOM</span></h2>
           <p className="features-tagline">
-            Tecnología industrial de alta capacidad, con la garantía y la cercanía que tu empresa y hogar necesitan en NL.
+            Tecnología industrial de alta capacidad con la cercanía que tu hogar necesita.
           </p>
         </div>
 
-        <div className="features-grid">
+        <div className="features-grid-four">
           {benefits.map((item, index) => (
-            /* Usamos el componente Card en lugar de un div manual */
-            <Card key={index} className="benefit-card-adjust">
-              <div className="feature-icon">{item.icon}</div>
+            <div key={index} className="benefit-card-white">
+              <div className="feature-icon-box">{item.icon}</div>
               <h3>{item.title}</h3>
               <p>{item.desc}</p>
-            </Card>
+            </div>
           ))}
         </div>
 

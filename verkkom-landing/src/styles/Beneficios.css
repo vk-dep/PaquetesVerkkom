@@ -1,86 +1,114 @@
-/* src/styles/Beneficios.css */
+/* --- SECCIÓN BENEFICIOS (BLANCO CÓMODO) --- */
+.vk-features-clean {
+  padding: 100px 5%;
+  background-color: #f8fafc; /* Blanco "Hueso" para no quemar la vista */
+  /* Patrón de puntos muy sutil */
+  background-image: radial-gradient(#cbd5e1 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: #1e293b;
+  width: 100%;
+  position: relative;
+}
 
-.vk-features-dark {
-  padding: 120px 10%;
-  background-color: #0e1f3b; /* Fondo azul profundo */
-  color: #ffffff;
+.features-inner {
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
 .features-header {
   text-align: center;
-  margin-bottom: 80px;
+  margin-bottom: 60px;
 }
 
 .features-tag {
-  color: #02f695;
+  color: #059669;
   font-weight: 800;
-  letter-spacing: 4px;
+  letter-spacing: 3px;
   text-transform: uppercase;
-  font-size: 0.9rem;
+  font-size: 0.8rem;
+  display: block;
+  margin-bottom: 15px;
 }
 
 .features-header h2 {
-  font-size: 3.5rem;
-  font-weight: 800;
-  margin-top: 20px;
-  letter-spacing: -0.04em;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-weight: 900;
+  color: #0e1f3b;
+  line-height: 1.1;
 }
 
 .features-header h2 span {
   color: #37a4dc;
 }
 
-/* El grid ahora solo controla el diseño de las columnas */
-.features-grid {
+/* --- GRID DE 4 COLUMNAS FORZADO --- */
+.features-grid-four {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 30px;
+  /* Esto obliga a que siempre sean 4 columnas en pantallas grandes */
+  grid-template-columns: repeat(4, 1fr); 
+  gap: 20px;
 }
 
-/* --- Estilos internos de la Card en Beneficios --- */
+/* --- ESTILO DE LAS CARDS --- */
+.benefit-card-white {
+  background: #ffffff;
+  padding: 35px 25px;
+  border-radius: 20px;
+  border: 1px solid #e2e8f0;
+  display: flex;
+  flex-direction: column;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+}
 
-.feature-icon {
-  color: #164075;
-  background: white;
-  width: 65px;
-  height: 65px;
+.benefit-card-white:hover {
+  transform: translateY(-10px);
+  border-color: #37a4dc;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.08);
+}
+
+.feature-icon-box {
+  color: #0e1f3b;
+  background: #f1f5f9;
+  width: 55px;
+  height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 16px;
-  margin-bottom: 30px;
-  transition: all 0.3s ease;
+  border-radius: 12px;
+  margin-bottom: 20px;
+  transition: 0.3s;
 }
 
-/* Efecto que conecta con el hover de la Card */
-.benefit-card-adjust:hover .feature-icon {
-  background: #164075;
+.benefit-card-white:hover .feature-icon-box {
+  background: #0e1f3b;
   color: #02f695;
-  transform: scale(1.1);
 }
 
-.benefit-card-adjust h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
+.benefit-card-white h3 {
+  font-size: 1.2rem;
   font-weight: 800;
+  color: #0e1f3b;
+  margin-bottom: 12px;
 }
 
-.benefit-card-adjust p {
-  font-size: 1rem;
-  color: #f1f5f9;
-  line-height: 1.7;
-  opacity: 0.85;
+.benefit-card-white p {
+  font-size: 0.9rem;
+  color: #64748b;
+  line-height: 1.6;
 }
 
-/* Responsivo para móviles/tablets */
-@media (max-width: 992px) {
-  .vk-features-dark {
-    padding: 100px 5%;
+/* --- RESPONSIVO --- */
+/* En tablets se ponen 2 y 2 */
+@media (max-width: 1100px) {
+  .features-grid-four {
+    grid-template-columns: repeat(2, 1fr);
   }
-  .features-header h2 {
-    font-size: 3rem;
-  }
-  .feature-card {
-    padding: 40px 30px;
+}
+
+/* En celulares 1 sola columna */
+@media (max-width: 650px) {
+  .features-grid-four {
+    grid-template-columns: 1fr;
   }
 }

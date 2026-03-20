@@ -1,63 +1,81 @@
 import React from 'react';
-import { Facebook, Linkedin, Instagram, MapPin, Mail } from 'lucide-react';
+import { Facebook, Instagram, MapPin, Mail, MessageSquare, ShieldCheck } from 'lucide-react';
 import '../styles/footer.css';
 
 export function Footer() {
   const handleContratarGeneral = () => {
-    // IMPORTANTE: Sin espacios para que funcione en todos los navegadores
     const telefono = "5218128838654";
-    const mensaje = "Hola";
-
-    // Codificamos el mensaje para que sea válido en una URL
+    const mensaje = "Hola Verkkom, me gustaría recibir información.";
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-
     window.open(url, '_blank');
   };
 
   return (
-    <footer className="vk-footer-final">
-      <div className="footer-top-gradient"></div>
+    <footer className="vk-footer-premium">
+      {/* Línea de luz superior para separar de la sección anterior */}
+      <div className="footer-glow-divider"></div>
 
-      <div className="footer-content">
+      <div className="footer-main-container">
+        
         {/* COLUMNA 1: IDENTIDAD */}
-        <div className="footer-brand">
-          <div className="logo-main">
-            <span className="v-bold">JYB</span>
-            <span className="v-name">WIFI</span>
+        <div className="footer-col-brand">
+          <div className="footer-logo">
+            <span className="logo-v">V</span>
+            <span className="logo-text">VERKKOM</span>
           </div>
-          <p className="brand-tagline">
-            Conectividad industrial de alta capacidad en el corazón de Nuevo León.
+          <p className="footer-description">
+            Llevando conectividad de alta capacidad a las zonas que mueven el motor industrial de Nuevo León.
           </p>
-          <div className="social-pills">
-            <a href="#" className="social-pill"><Facebook size={18} /></a>
-            <a href="#" className="social-pill"><Instagram size={18} /></a>
-            <a href="#" className="social-pill"><Linkedin size={18} /></a>
+          <div className="footer-social-group">
+            <a href="https://facebook.com/VerkkomRT" target="_blank" rel="noreferrer" className="social-link">
+              <Facebook size={18} />
+            </a>
+            <a href="https://instagram.com/verkkom.oficial" target="_blank" rel="noreferrer" className="social-link">
+              <Instagram size={18} />
+            </a>
           </div>
         </div>
 
-        {/* COLUMNA 2: COBERTURA LOCAL */}
-        <div className="footer-links-group">
-          <h4>Cobertura</h4>
-          <ul>
-            <li><MapPin size={14} /> Salinas, N.L.</li>
-            <li><MapPin size={14} /> Pesquería, N.L.</li>
-            <li><MapPin size={14} /> Zonas Industriales</li>
+        {/* COLUMNA 2: COBERTURA */}
+        <div className="footer-col-links">
+          <h4 className="footer-title">Cobertura</h4>
+          <ul className="footer-list">
+            <li><MapPin size={14} className="icon-blue" /> Salinas Victoria</li>
+            <li><MapPin size={14} className="icon-blue" /> Pesquería</li>
+            <li><MapPin size={14} className="icon-blue" /> Zuazua</li>
+            <li><MapPin size={14} className="icon-blue" /> Apodaca</li>
           </ul>
         </div>
 
-        {/* COLUMNA 3: SOPORTE */}
-        <div className="footer-links-group">
-          <h4>Soporte</h4>
-          <ul>
-            <li><a href="#" onClick={handleContratarGeneral}>Centro de Ayuda</a></li>
-            <li><Mail size={14} /> contacto@verkkom.com</li>
+        {/* COLUMNA 3: SOPORTE Y CONTACTO */}
+        <div className="footer-col-links">
+          <h4 className="footer-title">Soporte</h4>
+          <ul className="footer-list">
+            <li>
+              <button onClick={handleContratarGeneral} className="footer-link-btn">
+                <MessageSquare size={14} /> Centro de Ayuda
+              </button>
+            </li>
+            <li>
+              <a href="mailto:contacto@verkkom.com" className="footer-link">
+                <Mail size={14} /> contacto@verkkom.com
+              </a>
+            </li>
+            <li className="footer-status">
+              <ShieldCheck size={14} className="icon-green" /> 
+              <span>Red Monitoreada 24/7</span>
+            </li>
           </ul>
         </div>
+
       </div>
 
-      <div className="footer-signature">
-        <div className="signature-line"></div>
-        <p>© 2026 Visual Render by <strong>Studio JYB</strong></p>
+      <div className="footer-bottom">
+        <div className="footer-bottom-line"></div>
+        <div className="footer-legal">
+          <p>© 2026 <strong>VERKKOM</strong>. Todos los derechos reservados.</p>
+          <p className="dev-signature">Visual Render by <span>Equipo Verkkom</span></p>
+        </div>
       </div>
     </footer>
   );

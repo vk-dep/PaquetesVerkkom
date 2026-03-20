@@ -1,63 +1,57 @@
 import React from 'react';
 import { Button } from '../ui/Button';
-import { ArrowRight, MapPin } from 'lucide-react';
+import { ShieldCheck, HardHat, CheckCircle } from 'lucide-react';
 import '../styles/Hero.css';
-import { MapaCobertura } from '../components/cobertura';
 
 export function Hero() {
-  const handleContratarGeneral = () => {
-    // IMPORTANTE: Sin espacios para que funcione en todos los navegadores
-    const telefono = "5218123921000";
-    const mensaje = "¡Hola Verkkom! Vengo de su sitio web y me interesa contratar su servicio de internet. ¿Me podrían dar más información?";
-
-    // Codificamos el mensaje para que sea válido en una URL
-    const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
-
-    window.open(url, '_blank');
-  };
-
-  // Función para manejar el salto a la sección
-  const scrollToCobertura = () => {
-    const section = document.getElementById('cobertura');
-    if (section) {
-      section.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
-
   return (
     <section className="vk-hero">
-      <div className="hero-overlay"></div> {/* Capa de oscuridad extra */}
+      <div className="hero-main-glow"></div>
 
-      <div className="hero-container">
-        <div className="hero-content">
-          <h1 className="hero-title">
-            Internet de alta velocidad en <span>Nuevo León.</span>
-          </h1>
+      {/* LADO DERECHO: VISUAL */}
+      <div className="vk-hero-visual">
+        <div className="hero-img-mask">
+          <img 
+            src="/fondo_hero.jpeg" 
+            alt="Técnico Verkkom" 
+            className="hero-main-img"
+          />
+        </div>
+        <div className="floating-ui item-1">
+          <ShieldCheck size={16} color="#02f695" /> <span>Red Segura</span>
+        </div>
+        <div className="floating-ui item-2">
+          <CheckCircle size={16} color="#02f695" /> <span>Velocidad Asegurada</span>
+        </div>
+      </div>
 
-          <p className="hero-description">
-            Conectamos tu mundo, sin límites. <strong>JYB WIFI</strong> rapidez para
-            hogares y empresas industriales donde otros no llegan.
+      <div className="vk-hero-container">
+        <div className="vk-hero-content">
+          <div className="vk-hero-tag">
+            <HardHat size={14} />
+            <span>Infraestructura Propia</span>
+          </div>
+          
+          {/* Texto más impactante y grande */}
+          <h1>EL INTERNET <br/><span>QUE MERECES</span></h1>
+          
+          <p>
+            Experimenta el poder de la fibra óptica real. Sin intermediarios, 
+            sin caídas, solo velocidad pura.
           </p>
 
-          <div className="hero-actions">
-            <Button variant="primary" onClick={handleContratarGeneral} className="btn-hero-main">
-              Contratar Ahora <ArrowRight size={20} />
+          <div className="vk-hero-btns">
+            <Button variant="primary" className="btn-hero-main">
+              CONTRATAR AHORA
             </Button>
-
-            <Button
-              variant="outline"
-              className="btn-hero-sec"
-              onClick={scrollToCobertura}
-            >
-
-              <MapPin size={18} /> Ver Cobertura
+            <Button variant="outline" className="btn-hero-sec">
+              VER PLANES
             </Button>
           </div>
         </div>
       </div>
-
-      {/* Decoración inferior para conectar con la siguiente sección */}
-      <div className="hero-bottom-gradient"></div>
+      
+      <div className="scan-line"></div>
     </section>
   );
 }

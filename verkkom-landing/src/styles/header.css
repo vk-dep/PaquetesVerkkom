@@ -1,80 +1,107 @@
-/* src/styles/Header.css */
-
-.vk-header {
+/* --- HEADER WRAPPER --- */
+.vk-header-wrapper {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  top: 0; left: 0; width: 100%;
   z-index: 1000;
-
-  /* AJUSTE FINO: De 25px bajamos a 18px para un look más estilizado */
-  padding: 18px 0;
-
-  /* Efecto Glassmorphism (se mantiene para el toque tech) */
-  background: rgba(14, 31, 59, 0.85);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
+  transition: all 0.4s ease;
+  background: rgba(14, 31, 59, 0.2); 
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Efecto al hacer scroll: un poco más compacto aún */
-.vk-header.scrolled {
-  padding: 12px 0;
-  background: rgba(14, 31, 59, 0.98);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+.vk-header-wrapper.is-scrolled {
+  background: rgba(14, 31, 59, 0.9);
+  backdrop-filter: blur(12px);
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(2, 246, 149, 0.3);
 }
 
-.header-container {
+/* CONTENEDOR (Igual al nombre del JSX) */
+.vk-header-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 0 5%;
+  padding: 15px 5%;
   display: flex;
-  align-items: center;
   justify-content: space-between;
+  align-items: center;
 }
 
-/* --- LOGO (Ajuste de tamaño proporcional) --- */
-.logo-v {
-  font-size: 1.8rem;
-  /* Bajamos de 2rem a 1.8rem */
-  font-weight: 900;
-  color: #02f695;
-}
+/* --- LOGO --- */
+.vk-logo { text-decoration: none; display: flex; align-items: center; gap: 12px; }
+.logo-icon { color: #02f695; }
+.logo-text { color: white; font-weight: 900; font-size: 1.4rem; letter-spacing: -1px; }
+.logo-text span { color: #02f695; }
 
-.logo-text {
-  font-size: 1.35rem;
-  /* Bajamos de 1.5rem a 1.35rem */
-  font-weight: 800;
-  color: #ffffff;
-  letter-spacing: -0.5px;
-}
-
-/* --- NAVEGACIÓN --- */
-.nav-menu {
+/* --- NAV DESKTOP (ELIMINANDO EL BUG DE POSICIÓN) --- */
+.vk-nav-desktop {
   display: flex;
-  gap: 30px;
-  /* Reducimos un poco el espacio entre links */
+  gap: 40px;
 }
 
-.nav-menu a {
-  color: rgba(255, 255, 255, 0.7);
+.vk-nav-desktop a {
+  color: white;
   text-decoration: none;
-  font-weight: 600;
-  font-size: 0.9rem;
-  /* Un pelín más chico para el look minimal */
-  transition: all 0.3s ease;
+  font-size: 0.85rem;
+  font-weight: 800;
+  opacity: 0.6;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: 0.3s;
 }
 
-.nav-menu a:hover {
+.vk-nav-desktop a:hover, 
+.vk-nav-desktop a.active {
   color: #02f695;
-  transform: translateY(-1px);
+  opacity: 1;
 }
 
-/* --- BOTÓN --- */
-.btn-header {
-  padding: 8px 22px !important;
-  /* Más compacto */
-  font-size: 0.85rem !important;
-  font-weight: 700 !important;
+/* --- ACCIONES --- */
+.vk-header-actions { display: flex; align-items: center; gap: 20px; }
+
+.btn-contratar-header {
+  padding: 12px 28px !important;
+  font-size: 0.8rem !important;
+  font-weight: 900 !important;
+  border-radius: 8px !important;
+}
+
+/* --- BOTÓN HAMBURGUESA --- */
+.hamburger-btn {
+  display: none; /* Se oculta en PC */
+  background: none; border: none; color: white; cursor: pointer;
+  z-index: 1001;
+}
+
+/* --- MENÚ MÓVIL (ESTILO OVERLAY) --- */
+.vk-mobile-overlay {
+  position: fixed;
+  top: 0; right: 0; width: 100%; height: 100vh;
+  background: #0e1f3b;
+  display: flex; justify-content: center; align-items: center;
+  transform: translateX(100%);
+  transition: 0.5s ease;
+  z-index: 999;
+}
+
+.vk-mobile-overlay.active { transform: translateX(0); }
+
+.vk-nav-mobile {
+  display: flex; flex-direction: column; gap: 30px;
+  width: 80%; text-align: center;
+}
+
+.vk-nav-mobile a {
+  color: white; text-decoration: none; font-size: 1.5rem; font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* --- RESPONSIVE (LA SOLUCIÓN AL BUG) --- */
+@media (max-width: 968px) {
+  .vk-nav-desktop, 
+  .btn-contratar-header {
+    display: none !important; /* MATAMOS LOS LINKS EN MÓVIL */
+  }
+
+  .hamburger-btn {
+    display: block !important; /* SOLO SE VE LA HAMBURGUESA */
+  }
 }

@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import maplibregl from 'maplibre-gl';
-import { Radio, Zap, Clock } from 'lucide-react';
+import { ShieldCheck, Radio, Zap, Clock } from 'lucide-react';
 import 'maplibre-gl/dist/maplibre-gl.css';
 import '../styles/Cobertura.css';
 
@@ -10,9 +10,22 @@ export function MapaCobertura() {
     useEffect(() => {
         const map = new maplibregl.Map({
             container: mapContainer.current,
-            style: 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json', // Mapa normal/claro
-            center: [-100.15, 25.88],
-            zoom: 10,
+            // Cambiado a 'nolabels' para que el mapa permanezca limpio y usar nuestras etiquetas
+            style: 'https://basemaps.cartocdn.com/gl/dark-matter-nolabels-gl-style/style.json', 
+            // Centro ajustado para abarcar el triángulo Pesquería-Zuazua-Salinas
+            center: [-100.12, 25.88], 
+            zoom: 10.2, // Zoom ideal para ver las 3 zonas
+            
+            /* --- BLOQUEO TOTAL DEL MAPA --- */
+            interactive: false,
+            dragPan: false,
+            scrollZoom: false,
+            boxZoom: false,
+            dragRotate: false,
+            keyboard: false,
+            doubleClickZoom: false,
+            touchZoomRotate: false,
+            attributionControl: false
         });
 
         const puntos = [
@@ -22,9 +35,27 @@ export function MapaCobertura() {
         ];
 
         puntos.forEach(p => {
+            // Creamos el contenedor del marcador con el puntito
             const el = document.createElement('div');
-            el.className = `marker-verkkom ${p.status}`;
-            new maplibregl.Marker(el).setLngLat(p.coords).addTo(map);
+            el.className = `marker-tech ${p.status}`;
+            
+            const dot = document.createElement('div');
+            dot.className = 'dot-core';
+            el.appendChild(dot);
+
+            const pulse = document.createElement('div');
+            pulse.className = 'dot-pulse';
+            el.appendChild(pulse);
+
+            // Creamos la etiqueta con el nombre de la ciudad
+            const label = document.createElement('div');
+            label.className = `city-label ${p.status}`;
+            label.innerText = p.city;
+            el.appendChild(label);
+
+            new maplibregl.Marker(el)
+                .setLngLat(p.coords)
+                .addTo(map);
         });
 
         return () => map.remove();
@@ -33,17 +64,19 @@ export function MapaCobertura() {
     return (
         <section className="vk-coverage-section" id="cobertura">
             <div className="coverage-wrapper">
-
                 <div className="coverage-content">
-                    <div className="tag-industrial">RED NACIONAL</div>
-                    <h2 className="main-title">Conectividad sin <span className="neon-text">Fronteras</span></h2>
+                    <div className="tag-industrial">
+                        <ShieldCheck size={14} /> <span>RED PROPIA VERKKOM</span>
+                    </div>
+                    <h2 className="main-title">Conectividad <br/><span className="neon-text">INTELIGENTE</span></h2>
                     <p className="main-desc">
-                        Nuestra red se expande para llevar internet real a las zonas que mueven la economía de Nuevo León.
+                        Infraestructura diseñada para los motores industriales de Nuevo León. 
+                        Cobertura garantizada en zonas estratégicas.
                     </p>
 
                     <div className="coverage-status-list">
                         <div className="status-item active">
-                            <Radio size={22} color="#02f695" />
+                            <div className="status-indicator"></div>
                             <div className="text-box">
                                 <h4>Pesquería</h4>
                                 <p>SERVICIO ACTIVO</p>
@@ -51,7 +84,7 @@ export function MapaCobertura() {
                         </div>
 
                         <div className="status-item active">
-                            <Zap size={22} color="#02f695" />
+                            <div className="status-indicator"></div>
                             <div className="text-box">
                                 <h4>Salinas Victoria</h4>
                                 <p>SERVICIO ACTIVO</p>
@@ -59,7 +92,7 @@ export function MapaCobertura() {
                         </div>
 
                         <div className="status-item soon">
-                            <Clock size={22} color="#37a4dc" />
+                            <div className="status-indicator"></div>
                             <div className="text-box">
                                 <h4>Zuazua</h4>
                                 <p className="soon-label">PRÓXIMAMENTE 2026</p>
@@ -69,9 +102,9 @@ export function MapaCobertura() {
                 </div>
 
                 <div className="map-visual-container">
-                    <div ref={mapContainer} className="map-view" />
+                    <div ref={mapContainer} className="map-view no-interact" />
+                    <div className="map-shadow-overlay"></div>
                 </div>
-
             </div>
         </section>
     );
