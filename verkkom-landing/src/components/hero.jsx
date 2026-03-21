@@ -1,9 +1,16 @@
 import React from 'react';
 import { Button } from '../ui/Button';
 import { ShieldCheck, HardHat, CheckCircle } from 'lucide-react';
+import { Link, NavLink } from 'react-router-dom';
 import '../styles/Hero.css';
 
 export function Hero() {
+
+  const handleContratar = () => {
+    const msg = encodeURIComponent(`¡Hola! Vengo de su pagina Web, quiero saber más`);
+    window.open(`https://wa.me/5218123921000?text=${msg}`, '_blank');
+  };
+
   return (
     <section className="vk-hero">
       <div className="hero-main-glow"></div>
@@ -41,10 +48,10 @@ export function Hero() {
           </p>
 
           <div className="vk-hero-btns">
-            <Button variant="primary" className="btn-hero-main">
+            <Button variant="primary" className="btn-hero-main" onClick={handleContratar}>
               CONTRATAR AHORA
             </Button>
-            <Button variant="outline" className="btn-hero-sec">
+            <Button variant="outline" className="btn-hero-sec" >
               VER PLANES
             </Button>
           </div>

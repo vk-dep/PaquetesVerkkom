@@ -1,236 +1,112 @@
-/* --- NUEVA PÁGINA CATÁLOGO (FONDO OSCURO INTEGRADO) --- */
 .vk-catalogo-page {
-  background-color: #0e1f3b; /* Azul profundo oficial Verkkom */
+  background-color: #0e1f3b;
   min-height: 100vh;
-  padding: 120px 8% 100px;
+  padding: 100px 8% 80px;
   color: #ffffff;
   position: relative;
   overflow: hidden;
 }
 
-/* Decoración de fondo */
+/* Glow de fondo */
 .catalogo-bg-glow {
   position: absolute;
-  top: 10%;
-  left: 50%;
+  top: -10%; left: 50%;
   transform: translateX(-50%);
-  width: 800px;
-  height: 600px;
-  background: radial-gradient(circle, rgba(2, 246, 149, 0.05) 0%, transparent 70%);
+  width: 1000px; height: 600px;
+  background: radial-gradient(circle, rgba(2, 246, 149, 0.03) 0%, transparent 70%);
   z-index: 1;
-  pointer-events: none;
 }
 
-.catalogo-hero { text-align: center; margin-bottom: 70px; position: relative; z-index: 2; }
+.catalogo-hero { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; }
 
 .tag-neon { 
-  display: flex; 
-  align-items: center; 
-  justify-content: center; 
-  gap: 12px; 
-  color: #02f695; 
-  margin-bottom: 25px; 
+  display: flex; align-items: center; justify-content: center; gap: 10px; 
+  color: #02f695; margin-bottom: 15px; font-weight: 900; letter-spacing: 4px; font-size: 0.8rem;
 }
 
-.tag-neon span { 
-  font-weight: 900; 
-  letter-spacing: 5px; 
-  font-size: 0.85rem; 
-  text-transform: uppercase; 
-}
-
-.catalogo-hero h1 { 
-  font-size: clamp(2.5rem, 6vw, 4rem); 
-  font-weight: 900; 
-  letter-spacing: -2px; 
-  line-height: 1.1;
-  margin: 0;
-}
-
+.catalogo-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -2px; }
 .catalogo-hero h1 span { color: #02f695; }
 
-/* --- FILTROS TECH --- */
-.filter-container { 
-  display: flex; 
-  justify-content: center; 
-  gap: 15px; 
-  margin-bottom: 70px; 
-  flex-wrap: wrap; 
-  position: relative; z-index: 2;
-}
+/* Filtros minimalistas */
+.filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 60px; position: relative; z-index: 2; }
 
 .filter-container button {
-  background: rgba(22, 64, 117, 0.4); 
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.7); 
-  padding: 14px 32px; 
-  border-radius: 12px; 
-  cursor: pointer; 
-  font-weight: 800; 
-  font-size: 0.9rem;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.filter-container button:hover {
-  border-color: #37a4dc;
-  color: #ffffff;
+  background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.6); padding: 10px 25px; border-radius: 50px; 
+  cursor: pointer; font-weight: 700; transition: 0.3s;
 }
 
 .filter-container button.active { 
-  background: #02f695; 
-  color: #0e1f3b; 
-  border-color: #02f695;
-  box-shadow: 0 0 30px rgba(2, 246, 149, 0.3); 
+  background: #02f695; color: #0e1f3b; border-color: #02f695;
+  box-shadow: 0 0 20px rgba(2, 246, 149, 0.3); 
 }
 
-/* --- GRID DE 3 COLUMNAS FORZADO --- */
+/* Grid de 3 columnas */
 .catalogo-grid-3x3 {
-  display: grid; 
-  /* Obliga a 3 columnas en desktop */
-  grid-template-columns: repeat(3, 1fr); 
-  gap: 30px; 
-  max-width: 1300px; 
-  margin: 0 auto;
-  position: relative; z-index: 2;
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 25px; max-width: 1300px; margin: 0 auto; position: relative; z-index: 2;
 }
 
-/* --- CARDS INTEGRADAS (Sustituye a catalogo-card-clean) --- */
+/* CARD MEJORADA: Menos texto, más visual */
 .catalogo-card-visual {
-  background: #164075 !important; /* Azul Clásico oficial para el fondo de la card */
-  border: 1px solid rgba(255,255,255,0.05) !important;
-  display: flex !important;
-  flex-direction: column !important;
-  height: 100% !important;
-  border-radius: 28px !important;
-  overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease !important;
+  background: #164075 !important;
+  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  border-radius: 24px !important;
+  display: flex !important; flex-direction: column !important;
+  overflow: hidden; transition: 0.4s ease !important;
 }
 
 .catalogo-card-visual:hover {
-  transform: translateY(-12px);
-  border-color: #37a4dc !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.3) !important;
+  transform: translateY(-10px);
+  border-color: #02f695 !important;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
 }
 
-/* Área de imagen */
 .card-visual-header {
-  position: relative;
-  height: 220px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 30px;
-  /* Gradiente sutil para dar profundidad */
-  background: radial-gradient(circle at center, rgba(55, 164, 220, 0.1) 0%, transparent 70%);
+  height: 200px; position: relative;
+  display: flex; justify-content: center; align-items: center;
+  background: radial-gradient(circle at center, rgba(55, 164, 220, 0.1), transparent 70%);
 }
 
 .product-img-float {
-  max-height: 100%;
-  width: auto;
-  z-index: 5;
-  filter: drop-shadow(0 20px 40px rgba(0,0,0,0.6));
+  max-height: 85%; width: auto; z-index: 2;
+  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
+  transition: 0.4s ease;
 }
 
-.catalogo-card-visual:hover .product-img-float {
-  transform: translateY(-15px) scale(1.05);
-}
+.catalogo-card-visual:hover .product-img-float { transform: scale(1.1); }
 
-.glow-effect {
-  position: absolute;
-  width: 130px;
-  height: 130px;
-  border-radius: 50%;
-  filter: blur(55px);
-  opacity: 0.4;
-  z-index: 1;
-}
-
+/* Glows dinámicos */
+.glow-effect { position: absolute; width: 100px; height: 100px; border-radius: 50%; filter: blur(50px); opacity: 0.4; z-index: 1; }
 .glow-fibra { background: #37a4dc; }
 .glow-antena { background: #02f695; }
+.glow-seguridad { background: #ffffff; }
 
-.tech-label {
-  position: absolute; 
-  bottom: 15px; 
-  left: 25px;
-  font-size: 0.7rem; 
-  font-weight: 900; 
-  padding: 5px 14px;
-  border-radius: 6px; 
-  letter-spacing: 2px; 
-  z-index: 10;
+.tech-badge {
+  position: absolute; top: 15px; left: 20px;
+  background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
+  padding: 4px 12px; border-radius: 6px; font-size: 0.6rem; font-weight: 900; letter-spacing: 1px;
 }
 
-.tech-fibra { background: rgba(55, 164, 220, 0.15); color: #37a4dc; border: 1px solid #37a4dc; }
-.tech-antena { background: rgba(2, 246, 149, 0.15); color: #02f695; border: 1px solid #02f695; }
+/* Cuerpo de la card simplificado */
+.card-body { padding: 25px; flex: 1; display: flex; flex-direction: column; }
 
-/* --- CUERPO DE LA CARD --- */
-.card-body { 
-  padding: 10px 30px 35px; 
-  display: flex; 
-  flex-direction: column; 
-  flex: 1; 
-  text-align: left;
+.card-info-main { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+
+.card-body h3 { font-size: 1.3rem; font-weight: 800; margin: 0; }
+
+.cat-speed-pill {
+  background: rgba(55, 164, 220, 0.1); color: #37a4dc;
+  padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800;
 }
 
-.card-body h3 { 
-  font-size: 1.6rem; 
-  font-weight: 900; 
-  margin-bottom: 5px; 
-  letter-spacing: -1px;
-}
-
-.cat-speed { 
-  color: #37a4dc; 
-  font-weight: 900; 
-  text-transform: uppercase; 
-  margin-bottom: 20px; 
-  font-size: 0.9rem;
-  letter-spacing: 1.5px;
-}
-
-/* PRECIO IMPACTANTE */
 .cat-price { 
-  font-size: 3.5rem; 
-  font-weight: 900; 
-  display: flex; 
-  align-items: baseline; 
-  margin-bottom: 25px;
-  letter-spacing: -3px;
+  font-size: 2.8rem; font-weight: 900; margin-bottom: 25px; 
+  letter-spacing: -2px; display: flex; align-items: baseline;
 }
 
-.cat-price span { color: #02f695; font-size: 1.4rem; margin-right: 4px; font-weight: 800; }
-.cat-price small { font-size: 0.9rem; color: rgba(255,255,255,0.4); font-weight: 500; margin-left: 5px; letter-spacing: 0; }
+.cat-price .symbol { color: #02f695; font-size: 1.2rem; margin-right: 4px; }
+.cat-price small { font-size: 0.9rem; opacity: 0.4; letter-spacing: 0; margin-left: 4px; }
 
-.cat-list { 
-  list-style: none; 
-  padding: 0; 
-  margin-bottom: 35px; 
-}
-
-.cat-list li { 
-  font-size: 0.95rem; 
-  margin-bottom: 14px; 
-  display: flex; 
-  align-items: center; 
-  gap: 12px; 
-  color: rgba(255,255,255,0.8);
-}
-
-.cat-list li svg { flex-shrink: 0; }
-
-/* El botón se va al fondo gracias a esto */
 .mt-auto { margin-top: auto !important; }
-
-/* RESPONSIVO */
-@media (max-width: 1100px) {
-  .catalogo-grid-3x3 { grid-template-columns: repeat(2, 1fr); gap: 20px; }
-}
-
-@media (max-width: 700px) {
-  .vk-catalogo-page { padding: 100px 5% 60px; }
-  .catalogo-hero h1 { font-size: 2.8rem; }
-  .catalogo-grid-3x3 { grid-template-columns: 1fr; }
-  .cat-price { font-size: 3rem; }
-}
+.w-full { width: 100%; }

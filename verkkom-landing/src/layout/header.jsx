@@ -16,6 +16,11 @@ export function Header() {
 
   const closeMenu = () => setIsOpen(false);
 
+  const handleContratar = () => {
+    const msg = encodeURIComponent(`¡Hola! Vengo de su pagina Web, quiero saber más`);
+    window.open(`https://wa.me/5218123921000?text=${msg}`, '_blank');
+  };
+
   return (
     <header className={`vk-header-wrapper ${scrolled ? 'is-scrolled' : ''}`}>
       <div className="vk-header-container">
@@ -35,7 +40,7 @@ export function Header() {
 
         {/* DERECHA: ACCIONES */}
         <div className="vk-header-actions">
-          <Button variant="primary" className="btn-contratar-header">
+          <Button variant="primary" className="btn-contratar-header" onClick={handleContratar}>
             CONTRATAR
           </Button>
           

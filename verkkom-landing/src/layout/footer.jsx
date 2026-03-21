@@ -43,7 +43,6 @@ export function Footer() {
             <li><MapPin size={14} className="icon-blue" /> Salinas Victoria</li>
             <li><MapPin size={14} className="icon-blue" /> Pesquería</li>
             <li><MapPin size={14} className="icon-blue" /> Zuazua</li>
-            <li><MapPin size={14} className="icon-blue" /> Apodaca</li>
           </ul>
         </div>
 

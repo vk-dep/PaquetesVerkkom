@@ -1,0 +1,139 @@
+.vk-infra-section {
+  background-color: #0e1f3b;
+  padding: 100px 0; /* Quitamos padding lateral para que el swiper toque los bordes */
+  position: relative;
+  overflow: hidden;
+}
+
+.infra-container {
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.infra-header {
+  text-align: center;
+  margin-bottom: 60px;
+  padding: 0 5%;
+}
+
+.infra-tag {
+  color: #02f695;
+  font-weight: 800;
+  letter-spacing: 4px;
+  font-size: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.infra-title {
+  color: #fff;
+  font-size: clamp(2.2rem, 5vw, 3.5rem);
+  font-weight: 900;
+  line-height: 1.1;
+  letter-spacing: -2px;
+}
+
+.infra-title .neon { color: #02f695; }
+
+/* --- SWIPER STYLES --- */
+.swiper-viewport {
+  padding: 20px 0 60px;
+}
+
+.infra-slide {
+  width: 450px; /* Ancho fijo para mantener proporción */
+  height: 550px;
+  transition: all 0.5s ease;
+}
+
+.infra-card {
+  width: 100%;
+  height: 100%;
+  border-radius: 30px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.infra-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.infra-slide-active .infra-img {
+  transform: scale(1.1);
+}
+
+/* --- OVERLAY ESTILO GLASS --- */
+.infra-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 35px;
+  background: linear-gradient(transparent, rgba(14, 31, 59, 0.95));
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transform: translateY(20px);
+  opacity: 0;
+  transition: all 0.4s ease;
+}
+
+.infra-slide-active .infra-overlay {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.infra-icon-box {
+  background: #02f695;
+  color: #0e1f3b;
+  padding: 12px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(2, 246, 149, 0.3);
+}
+
+.infra-info h3 {
+  font-size: 1.5rem;
+  font-weight: 900;
+  color: #fff;
+  margin: 0;
+}
+
+.infra-info p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.6);
+  margin: 5px 0 0;
+}
+
+/* --- FLECHAS Y PAGINACIÓN --- */
+.infra-swiper .swiper-button-next,
+.infra-swiper .swiper-button-prev {
+  color: #02f695;
+  width: 50px;
+  height: 50px;
+  background: rgba(14, 31, 59, 0.8);
+  border-radius: 50%;
+  transform: scale(0.8);
+}
+
+.infra-swiper .swiper-button-next::after,
+.infra-swiper .swiper-button-prev::after {
+  font-size: 1.2rem;
+}
+
+.infra-swiper .swiper-pagination-bullet-active {
+  background: #02f695;
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .infra-slide { width: 85%; height: 450px; }
+  .infra-overlay { opacity: 1; transform: translateY(0); padding: 20px; }
+}
