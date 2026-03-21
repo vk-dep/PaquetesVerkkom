@@ -21,7 +21,7 @@
 }
 
 .vk-hero-content {
-  max-width: 800px; /* Aumentado para dar espacio al nuevo tamaño de letra */
+  max-width: 800px;
 }
 
 .vk-hero-tag {
@@ -40,9 +40,7 @@
   border-left: 3px solid #02f695;
 }
 
-/* TÍTULO MÁS GRANDE E IMPACTANTE */
 .vk-hero-content h1 {
-  /* Tamaño aumentado: mínimo 3rem, máximo 5.5rem según pantalla */
   font-size: clamp(3rem, 10vw, 5.5rem); 
   font-weight: 900;
   line-height: 0.9;
@@ -71,7 +69,7 @@
 }
 
 .btn-hero-main, .btn-hero-sec {
-  padding: 18px 40px !important; /* Botones un poco más robustos */
+  padding: 18px 40px !important;
   font-size: 0.9rem !important;
   font-weight: 900 !important;
   text-transform: uppercase;
@@ -116,7 +114,7 @@
   pointer-events: none;
 }
 
-/* PIPS FLOTANTES */
+/* PIPS FLOTANTES (ESCRITORIO) */
 .floating-ui {
   position: absolute;
   background: rgba(11, 22, 41, 0.85);
@@ -151,97 +149,83 @@
 
 @keyframes scan { from { top: 0%; } to { top: 100%; } }
 
-/* --- RESPONSIVO MEJORADO PARA MÓVIL --- */
+/* --- RESPONSIVO --- */
 @media (max-width: 968px) {
   .vk-hero {
-    padding-top: 120px;
+    padding-top: 100px;
     text-align: center;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    min-height: 90vh;
+    min-height: 100vh;
   }
 
   .vk-hero-container {
     padding: 0 8%;
-    z-index: 20; /* Asegura que el texto esté arriba */
+    z-index: 20;
   }
 
   .vk-hero-content {
     max-width: 100%;
   }
 
-  /* --- FIX DE LA IMAGEN "CURIOSA" --- */
+  .vk-hero-tag {
+    margin-bottom: 30px;
+  }
+
+  /* Imagen de fondo centrada */
   .vk-hero-visual {
-    position: absolute; /* La convertimos en fondo */
+    position: absolute;
     inset: 0;
     width: 100%;
     height: 100%;
     z-index: 1;
-    opacity: 0.5; /* Bajamos opacidad para que resalte el texto */
+    opacity: 0.4;
   }
 
   .hero-main-img {
-    object-position: center; /* ¡CLAVE! Centramos al técnico */
-    filter: brightness(0.3) saturate(1.2); /* Lo oscurecemos para legibilidad */
+    object-position: center;
+    filter: brightness(0.25) saturate(1.2);
   }
 
   .hero-img-mask {
-    /* Máscara radial: se desvanece hacia los bordes para no ver cortes bruscos */
-    mask-image: radial-gradient(circle, black 20%, transparent 80%);
-    -webkit-mask-image: radial-gradient(circle, black 20%, transparent 80%);
+    mask-image: radial-gradient(circle, black 30%, transparent 90%);
+    -webkit-mask-image: radial-gradient(circle, black 30%, transparent 90%);
   }
 
-  /* --- AJUSTE DE BOTONES --- */
   .vk-hero-btns {
     flex-direction: column;
     gap: 15px;
     align-items: center;
+    margin-top: 40px;
+    position: relative;
+    z-index: 50; /* Prioridad de click */
   }
 
   .btn-hero-main, .btn-hero-sec {
-    width: 100%; /* Botones de ancho completo en celular */
-    max-width: 300px;
+    width: 100%;
+    max-width: 320px;
   }
 
-  /* --- PIPS FLOTANTES EN MÓVIL --- */
+  /* --- PIPS FLOTANTES ARRIBA (Móvil) --- */
   .floating-ui {
-    scale: 0.8; /* Los hacemos más pequeños */
-    padding: 10px 18px;
+    scale: 0.7;
+    padding: 8px 14px;
+    background: rgba(11, 22, 41, 0.6);
   }
 
-  .floating-ui {
-    scale: 0.75; /* Un poco más pequeños para que no saturen */
-    padding: 8px 16px;
-    background: rgba(11, 22, 41, 0.6); /* Más transparente para que no pese visualmente */
-  }
-
-  /* Los movemos a la parte superior para dejar los botones libres abajo */
+  /* Ambos arriba para no tapar botones */
   .item-1 { 
-    top: 15%; /* Cerca del tag de arriba */
-    right: 2%; 
+    top: 12%; 
+    right: 5%; 
     left: auto;
     bottom: auto;
   }
 
   .item-2 { 
-    top: 22%; /* Un poco más abajo que el 1, pero lejos de los botones */
-    left: 2%; 
+    top: 18%; 
+    left: 5%; 
     right: auto;
-    bottom: auto; /* IMPORTANTE: quitamos el bottom para que no choque abajo */
+    bottom: auto;
   }
-
-  /* Ajustamos el contenedor de botones para que tenga prioridad */
-  .vk-hero-btns {
-    position: relative;
-    z-index: 50; /* Por encima de cualquier efecto visual */
-    margin-top: 30px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 12px;
-  }
-  .item-1 { top: 10%; right: 5%; }
-  .item-2 { bottom: 10%; left: 5%; right: auto; }
 }
