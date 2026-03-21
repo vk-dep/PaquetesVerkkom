@@ -225,7 +225,7 @@
   }
 
   .item-2 { 
-    top: 22%; /* Un poco más abajo que el 1, pero lejos de los botones */
+    top: 30%; /* Un poco más abajo que el 1, pero lejos de los botones */
     left: 2%; 
     right: auto;
     bottom: auto; /* IMPORTANTE: quitamos el bottom para que no choque abajo */
