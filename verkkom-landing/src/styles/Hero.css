@@ -210,6 +210,38 @@
     padding: 10px 18px;
   }
 
+  .floating-ui {
+    scale: 0.75; /* Un poco más pequeños para que no saturen */
+    padding: 8px 16px;
+    background: rgba(11, 22, 41, 0.6); /* Más transparente para que no pese visualmente */
+  }
+
+  /* Los movemos a la parte superior para dejar los botones libres abajo */
+  .item-1 { 
+    top: 15%; /* Cerca del tag de arriba */
+    right: 2%; 
+    left: auto;
+    bottom: auto;
+  }
+
+  .item-2 { 
+    top: 22%; /* Un poco más abajo que el 1, pero lejos de los botones */
+    left: 2%; 
+    right: auto;
+    bottom: auto; /* IMPORTANTE: quitamos el bottom para que no choque abajo */
+  }
+
+  /* Ajustamos el contenedor de botones para que tenga prioridad */
+  .vk-hero-btns {
+    position: relative;
+    z-index: 50; /* Por encima de cualquier efecto visual */
+    margin-top: 30px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
   .item-1 { top: 10%; right: 5%; }
   .item-2 { bottom: 10%; left: 5%; right: auto; }
 }
