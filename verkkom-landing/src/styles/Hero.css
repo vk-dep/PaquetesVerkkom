@@ -151,11 +151,65 @@
 
 @keyframes scan { from { top: 0%; } to { top: 100%; } }
 
-/* RESPONSIVO */
+/* --- RESPONSIVO MEJORADO PARA MÓVIL --- */
 @media (max-width: 968px) {
-  .vk-hero-container { text-align: center; }
-  .vk-hero-content { max-width: 100%; }
-  .vk-hero-btns { justify-content: center; flex-direction: column; }
-  .vk-hero-visual { position: relative; width: 100%; height: 350px; margin-top: 40px; }
-  .hero-img-mask { mask-image: linear-gradient(to bottom, transparent, black 20%, black 80%, transparent); }
+  .vk-hero {
+    padding-top: 120px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 90vh;
+  }
+
+  .vk-hero-container {
+    padding: 0 8%;
+    z-index: 20; /* Asegura que el texto esté arriba */
+  }
+
+  .vk-hero-content {
+    max-width: 100%;
+  }
+
+  /* --- FIX DE LA IMAGEN "CURIOSA" --- */
+  .vk-hero-visual {
+    position: absolute; /* La convertimos en fondo */
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.5; /* Bajamos opacidad para que resalte el texto */
+  }
+
+  .hero-main-img {
+    object-position: center; /* ¡CLAVE! Centramos al técnico */
+    filter: brightness(0.3) saturate(1.2); /* Lo oscurecemos para legibilidad */
+  }
+
+  .hero-img-mask {
+    /* Máscara radial: se desvanece hacia los bordes para no ver cortes bruscos */
+    mask-image: radial-gradient(circle, black 20%, transparent 80%);
+    -webkit-mask-image: radial-gradient(circle, black 20%, transparent 80%);
+  }
+
+  /* --- AJUSTE DE BOTONES --- */
+  .vk-hero-btns {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+
+  .btn-hero-main, .btn-hero-sec {
+    width: 100%; /* Botones de ancho completo en celular */
+    max-width: 300px;
+  }
+
+  /* --- PIPS FLOTANTES EN MÓVIL --- */
+  .floating-ui {
+    scale: 0.8; /* Los hacemos más pequeños */
+    padding: 10px 18px;
+  }
+
+  .item-1 { top: 10%; right: 5%; }
+  .item-2 { bottom: 10%; left: 5%; right: auto; }
 }
