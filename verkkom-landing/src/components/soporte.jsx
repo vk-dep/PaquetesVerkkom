@@ -5,7 +5,7 @@ import '../styles/Soporte.css';
 export function Soporte() {
   const handleSoporte = () => {
     const telefono = "5218128838654";
-    const mensaje = "Hola Verkkom, necesito soporte técnico.";
+    const mensaje = "Hola";
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   };

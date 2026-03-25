@@ -34,7 +34,7 @@ export function Beneficios() {
           <span className="features-tag">✦ Por qué elegirnos</span>
           <h2>Beneficios de <br /><span>VERKKOM</span></h2>
           <p className="features-tagline">
-            Tecnología industrial de alta capacidad con la cercanía que tu hogar necesita.
+            Tecnología de alta capacidad con la cercanía que tu hogar necesita.
           </p>
         </div>
 

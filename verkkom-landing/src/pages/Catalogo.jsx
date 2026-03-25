@@ -1,15 +1,21 @@
 import React, { useState } from 'react';
 import { Card } from '../ui/Card';
 import { Button } from '../ui/Button';
-import { Sparkle, Zap, Shield, Radio } from 'lucide-react';
+import { LeadModal } from '../ui/LeadModal'; // 1. IMPORTAMOS EL MODAL
+import { Sparkle } from 'lucide-react';
 import '../styles/Catalogo.css';
 
 export function Catalogo() {
   const [filtro, setFiltro] = useState('todos');
+  
+  // 2. ESTADOS PARA EL MODAL Y EL PLAN
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [planParaModal, setPlanParaModal] = useState("");
 
+  // 3. FUNCIÓN ACTUALIZADA: Ahora abre el modal en lugar de WhatsApp
   const handleContratar = (plan) => {
-    const msg = encodeURIComponent(`¡Hola! Me interesa el plan: ${plan}`);
-    window.open(`https://wa.me/5218123921000?text=${msg}`, '_blank');
+    setPlanParaModal(plan); // Guardamos el nombre del plan
+    setIsModalOpen(true);    // Abrimos el modal
   };
 
   const paquetes = [
@@ -29,14 +35,18 @@ export function Catalogo() {
       
       <header className="catalogo-hero">
         <div className="tag-neon">
-          <Sparkle size={16} /> <span>CATÁLOGO 2024</span>
+          <Sparkle size={16} /> <span>CATÁLOGO 2026</span>
         </div>
         <h1>Planes Sin <span>Excusas</span></h1>
       </header>
 
       <div className="filter-container">
         {['todos', 'fibra', 'antena', 'camara'].map(f => (
-          <button key={f} onClick={() => setFiltro(f)} className={filtro === f ? 'active' : ''}>
+          <button 
+            key={f} 
+            onClick={() => setFiltro(f)} 
+            className={filtro === f ? 'active' : ''}
+          >
             {f === 'camara' ? 'Cámaras' : f.charAt(0).toUpperCase() + f.slice(1)}
           </button>
         ))}
@@ -64,7 +74,7 @@ export function Catalogo() {
               <Button 
                 variant={p.destacado ? 'primary' : 'outline'} 
                 className="mt-auto w-full"
-                onClick={() => handleContratar(p.name)}
+                onClick={() => handleContratar(p.name)} // <--- Llama a la nueva lógica
               >
                 Contratar
               </Button>
@@ -72,6 +82,13 @@ export function Catalogo() {
           </Card>
         ))}
       </div>
+
+      {/* 4. INSERTAMOS EL MODAL AL FINAL DEL COMPONENTE */}
+      <LeadModal 
+        isOpen={isModalOpen} 
+        onClose={() => setIsModalOpen(false)} 
+        selectedPlan={planParaModal} 
+      />
     </div>
   );
 }

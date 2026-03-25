@@ -1,107 +1,192 @@
-/* --- HEADER WRAPPER --- */
+/* ==========================================================================
+   HEADER PRINCIPAL (VERKKOM)
+   ========================================================================== */
+
 .vk-header-wrapper {
   position: fixed;
-  top: 0; left: 0; width: 100%;
+  top: 0;
+  left: 0;
+  width: 100%;
   z-index: 1000;
-  transition: all 0.4s ease;
-  background: rgba(14, 31, 59, 0.2); 
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: rgba(11, 22, 41, 0.3); /* Transparente al inicio */
   border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
+/* Estado cuando el usuario hace scroll */
 .vk-header-wrapper.is-scrolled {
-  background: rgba(14, 31, 59, 0.9);
+  background: rgba(14, 31, 59, 0.95);
   backdrop-filter: blur(12px);
   padding: 5px 0;
   border-bottom: 1px solid rgba(2, 246, 149, 0.3);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
 }
 
-/* CONTENEDOR (Igual al nombre del JSX) */
 .vk-header-container {
   max-width: 1400px;
   margin: 0 auto;
-  padding: 15px 5%;
+  padding: 10px 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 /* --- LOGO --- */
-.vk-logo { text-decoration: none; display: flex; align-items: center; gap: 12px; }
-.logo-icon { color: #02f695; }
-.logo-text { color: white; font-weight: 900; font-size: 1.4rem; letter-spacing: -1px; }
-.logo-text span { color: #02f695; }
+.vk-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
 
-/* --- NAV DESKTOP (ELIMINANDO EL BUG DE POSICIÓN) --- */
+.vk-logo:hover {
+  transform: scale(1.02);
+}
+
+.logo-img {
+  height: 60px; /* Tamaño grande para PC */
+  width: auto;
+  object-fit: contain;
+  display: block;
+}
+
+/* --- NAVEGACIÓN DESKTOP --- */
 .vk-nav-desktop {
   display: flex;
-  gap: 40px;
+  gap: 35px;
 }
 
 .vk-nav-desktop a {
-  color: white;
+  color: #ffffff;
   text-decoration: none;
   font-size: 0.85rem;
   font-weight: 800;
-  opacity: 0.6;
+  opacity: 0.7;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  transition: 0.3s;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.vk-nav-desktop a:hover, 
+.vk-nav-desktop a:hover,
 .vk-nav-desktop a.active {
   color: #02f695;
   opacity: 1;
 }
 
-/* --- ACCIONES --- */
-.vk-header-actions { display: flex; align-items: center; gap: 20px; }
+/* Línea sutil debajo de los links al hacer hover */
+.vk-nav-desktop a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -5px;
+  left: 0;
+  background-color: #02f695;
+  transition: width 0.3s ease;
+}
+
+.vk-nav-desktop a:hover::after,
+.vk-nav-desktop a.active::after {
+  width: 100%;
+}
+
+/* --- ACCIONES (BOTÓN Y HAMBURGUESA) --- */
+.vk-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
 .btn-contratar-header {
-  padding: 12px 28px !important;
+  padding: 10px 24px !important;
   font-size: 0.8rem !important;
   font-weight: 900 !important;
-  border-radius: 8px !important;
+  border-radius: 6px !important;
+  letter-spacing: 1px;
 }
 
-/* --- BOTÓN HAMBURGUESA --- */
 .hamburger-btn {
-  display: none; /* Se oculta en PC */
-  background: none; border: none; color: white; cursor: pointer;
-  z-index: 1001;
+  display: none; /* Se activa en media query */
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+  padding: 5px;
+  transition: color 0.3s ease;
 }
 
-/* --- MENÚ MÓVIL (ESTILO OVERLAY) --- */
+.hamburger-btn:hover {
+  color: #02f695;
+}
+
+/* --- MENÚ MÓVIL (OVERLAY) --- */
 .vk-mobile-overlay {
   position: fixed;
-  top: 0; right: 0; width: 100%; height: 100vh;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
   background: #0e1f3b;
-  display: flex; justify-content: center; align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transform: translateX(100%);
-  transition: 0.5s ease;
-  z-index: 999;
+  transition: transform 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+  z-index: 1050;
 }
 
-.vk-mobile-overlay.active { transform: translateX(0); }
+.vk-mobile-overlay.active {
+  transform: translateX(0);
+}
 
 .vk-nav-mobile {
-  display: flex; flex-direction: column; gap: 30px;
-  width: 80%; text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 35px;
+  width: 80%;
+  text-align: center;
 }
 
 .vk-nav-mobile a {
-  color: white; text-decoration: none; font-size: 1.5rem; font-weight: 800;
+  color: white;
+  text-decoration: none;
+  font-size: 1.8rem;
+  font-weight: 900;
   text-transform: uppercase;
+  letter-spacing: 2px;
+  transition: color 0.3s ease;
 }
 
-/* --- RESPONSIVE (LA SOLUCIÓN AL BUG) --- */
+.vk-nav-mobile a:active,
+.vk-nav-mobile a.active {
+  color: #02f695;
+}
+
+/* --- RESPONSIVO --- */
 @media (max-width: 968px) {
-  .vk-nav-desktop, 
+  .logo-img {
+    height: 45px; /* Tamaño un poco más compacto en móvil */
+  }
+
+  .vk-nav-desktop,
   .btn-contratar-header {
-    display: none !important; /* MATAMOS LOS LINKS EN MÓVIL */
+    display: none !important;
   }
 
   .hamburger-btn {
-    display: block !important; /* SOLO SE VE LA HAMBURGUESA */
+    display: block !important;
+  }
+
+  .vk-header-container {
+    padding: 12px 6%;
+  }
+}
+
+/* Soporte para pantallas muy pequeñas */
+@media (max-width: 480px) {
+  .logo-img {
+    height: 38px;
   }
 }

@@ -54,9 +54,9 @@ export function CarruselInstalaciones() {
         
         <div className="infra-header">
           <div className="infra-tag">
-            <RadioTower size={16} /> <span>NUESTRA INFRAESTRUCTURA</span>
+            <RadioTower size={16} /> <span>COMPROMISO EN ACCION</span>
           </div>
-          <h2 className="infra-title">Tecnología Real detrás de tu <span className="neon">Conexión</span></h2>
+          <h2 className="infra-title">Que nuestro trabajo hable más que nosotros <span className="neon">en cada conexión</span></h2>
         </div>
 
         <div className="swiper-viewport">

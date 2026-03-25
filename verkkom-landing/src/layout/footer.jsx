@@ -1,11 +1,12 @@
 import React from 'react';
 import { Facebook, Instagram, MapPin, Mail, MessageSquare, ShieldCheck } from 'lucide-react';
 import '../styles/footer.css';
+import logo from '../assets/img/verkkomHeader.png';
 
 export function Footer() {
   const handleContratarGeneral = () => {
     const telefono = "5218128838654";
-    const mensaje = "Hola Verkkom, me gustaría recibir información.";
+    const mensaje = "Hola";
     const url = `https://wa.me/${telefono}?text=${encodeURIComponent(mensaje)}`;
     window.open(url, '_blank');
   };
@@ -20,8 +21,7 @@ export function Footer() {
         {/* COLUMNA 1: IDENTIDAD */}
         <div className="footer-col-brand">
           <div className="footer-logo">
-            <span className="logo-v">V</span>
-            <span className="logo-text">VERKKOM</span>
+            <img src={logo} alt="Verkkom Logo" className="logo-img" />
           </div>
           <p className="footer-description">
             Llevando conectividad de alta capacidad a las zonas que mueven el motor industrial de Nuevo León.

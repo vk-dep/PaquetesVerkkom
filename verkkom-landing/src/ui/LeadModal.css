@@ -1,0 +1,90 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(11, 22, 41, 0.85);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.modal-content {
+  background: #0e1f3b;
+  border: 1px solid rgba(2, 246, 149, 0.3);
+  padding: 40px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 450px;
+  position: relative;
+  box-shadow: 0 0 50px rgba(2, 246, 149, 0.1);
+}
+
+.modal-content h3 {
+  color: #02f695;
+  font-size: 1.8rem;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 30px;
+}
+
+.input-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+.input-group label {
+  display: block;
+  color: white;
+  font-size: 0.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.input-group input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 12px 15px;
+  border-radius: 8px;
+  color: white;
+  outline: none;
+}
+
+.input-group input:focus {
+  border-color: #02f695;
+}
+
+.submit-lead-btn {
+  width: 100%;
+  background: #02f695;
+  color: #0b1629;
+  border: none;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: 900;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: 0.3s;
+}
+
+.submit-lead-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(2, 246, 149, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px; right: 20px;
+  background: none; border: none; color: white; cursor: pointer;
+  opacity: 0.5;
+}

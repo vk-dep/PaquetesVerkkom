@@ -32,7 +32,7 @@ export function Nosotros() {
           </div>
           <div className="node-text">
             <h3>MISIÓN</h3>
-            <p>Proporcionar <span>conectividad industrial</span> de alta capacidad a áreas estratégicas.</p>
+            <p>Proporcionar <span>conectividad de calidad</span> en Pesquería, Salinas y Zuazua.</p>
           </div>
         </div>
 
@@ -62,7 +62,7 @@ export function Nosotros() {
         <div className="node-container vision-node">
           <div className="node-text align-right">
             <h3>VISIÓN</h3>
-            <p>Liderar la siguiente generación de <span>redes industriales</span>.</p>
+            <p>Posicionarnos como la mejor empresa de telecumunicaciones en <span>Nuevo León</span>.</p>
           </div>
           <div className="node-circle">
             <Rocket className="node-icon" />

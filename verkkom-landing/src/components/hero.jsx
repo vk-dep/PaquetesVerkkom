@@ -12,7 +12,7 @@ export function Hero() {
   };
 
   return (
-    <section className="vk-hero">
+    <section id="Inicio" className="vk-hero">
       <div className="hero-main-glow"></div>
 
       {/* LADO DERECHO: VISUAL */}
@@ -43,8 +43,8 @@ export function Hero() {
           <h1>EL INTERNET <br/><span>QUE MERECES</span></h1>
           
           <p>
-            Experimenta el poder de la fibra óptica real. Sin intermediarios, 
-            sin caídas, solo velocidad pura.
+            Navega, estudia y disfruta sin límites. 
+            Vive la experiencia del internet que mereces, con el soporte y la calidad que tu hogar busca.
           </p>
 
           <div className="vk-hero-btns">
