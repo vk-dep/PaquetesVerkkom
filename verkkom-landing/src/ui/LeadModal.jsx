@@ -14,7 +14,7 @@ export function LeadModal({ isOpen, onClose, selectedPlan }) {
     const planTexto = selectedPlan ? ` *Plan de interés:* ${selectedPlan}` : ` *¿Que plan me recomiendan?*`;
 
     const mensaje = encodeURIComponent(
-      `¡Hola Verkkom! \n\n` +
+      `¡Hola Verkkom! Vengo de su Pagina Web\n\n` +
       `Me interesa saber más de sus servicios. Aquí mis datos:\n\n` +
       `${planTexto}\n` + // <--- Aquí se añade el plan automáticamente
       `*Nombre:* ${formData.nombre}\n` +
