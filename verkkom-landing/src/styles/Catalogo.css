@@ -183,8 +183,65 @@ background-color: var(--navy-bg);
 .mt-auto { margin-top: auto !important; }
 .w-full { width: 100%; }
 
+/* 2. RESPONSIVO PARA CELULARES (Mobile First / Adjustments) */
 @media (max-width: 768px) {
+  /* Ajustamos el espacio de la página */
   .vk-catalogo-page {
-    padding-top: 120px;
+    padding: 100px 5% 40px; /* Menos espacio a los lados en celular */
+  }
+
+  /* El título principal más chico para que no rompa */
+  .catalogo-hero h1 {
+    font-size: 2.2rem;
+    line-height: 1.1;
+  }
+
+  /* Los filtros: hacemos que se puedan desplazar de lado si son muchos */
+  .filter-container {
+    gap: 8px;
+    margin-bottom: 40px;
+    flex-wrap: wrap; /* O 'overflow-x: auto' si prefieres scroll lateral */
+    justify-content: center;
+  }
+
+  .filter-container button {
+    padding: 8px 18px;
+    font-size: 0.9rem;
+  }
+
+  /* La Tarjeta en Móvil */
+  .catalogo-card-visual {
+    border-radius: 20px !important;
+    max-width: 380px; /* Que no se vea gigante */
+    margin: 0 auto;   /* Centrada */
+  }
+
+  .card-visual-header {
+    height: 200px; /* Un poco más bajito en móvil para ahorrar espacio */
+  }
+
+  /* El cuerpo de la tarjeta */
+  .card-body {
+    padding: 20px;
+    text-align: left; /* Mantenemos el texto a la izquierda */
+  }
+
+  .card-body h3 {
+    font-size: 1.5rem; /* Texto más cómodo para el pulgar */
+  }
+
+  .cat-price {
+    font-size: 2.4rem;
+    margin-top: 15px;
+  }
+}
+
+/* 3. AJUSTE EXTRA PARA PANTALLAS MUY CHICAS (iPhone SE, etc) */
+@media (max-width: 380px) {
+  .mbps {
+    font-size: 3.5rem;
+  }
+  .card-body h3 {
+    font-size: 1.3rem;
   }
 }

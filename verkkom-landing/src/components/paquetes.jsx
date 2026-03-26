@@ -40,7 +40,7 @@ export function Paquetes() {
           <h3>Antena</h3>
           <div className="speed-display">
             <span className="mbps">40</span>
-            <span className="unit">Mbps</span>
+            <span className="unit"> Mbps</span>
           </div>
           <div className="price-tag">
             <span className="currency">$</span>499<span className="period">/mes</span>
@@ -63,7 +63,7 @@ export function Paquetes() {
           <h3>Fibra Óptica</h3>
           <div className="speed-display">
             <span className="mbps">150</span>
-            <span className="unit">Mbps</span>
+            <span className="unit"> Mbps</span>
           </div>
           <div className="price-tag">
             <span className="currency">$</span>600<span className="period">/mes</span>
@@ -86,7 +86,7 @@ export function Paquetes() {
           <h3>Internet + Cámara</h3>
           <div className="speed-display">
             <span className="mbps">100</span>
-            <span className="unit">Mbps</span>
+            <span className="unit"> Mbps</span>
           </div>
           <div className="price-tag">
             <span className="currency">$</span>799<span className="period">/mes</span>
