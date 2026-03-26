@@ -1,112 +1,190 @@
+/* 1. VARIABLES UNIFICADAS (Igual que en Paquetes) */
+:root {
+  --navy-bg: #06142e;        /* Azul Marino Ultra Oscuro */
+  --navy-card: #0b2144;      /* Fondo de la Tarjeta */
+  --aqua-main: #00ead3;      /* Aqua Neón */
+  --aqua-glow: rgba(0, 234, 211, 0.15);
+  --text-dim: rgba(255, 255, 255, 0.7);
+}
+
 .vk-catalogo-page {
-  background-color: #0e1f3b;
+background-color: var(--navy-bg);
   min-height: 100vh;
-  padding: 100px 8% 80px;
+  /* Subimos de 60px a 140px para que el título no choque con el header */
+  padding: 140px 8% 80px; 
   color: #ffffff;
   position: relative;
   overflow: hidden;
 }
 
-/* Glow de fondo */
+/* Glow de fondo en Aqua */
 .catalogo-bg-glow {
   position: absolute;
   top: -10%; left: 50%;
   transform: translateX(-50%);
   width: 1000px; height: 600px;
-  background: radial-gradient(circle, rgba(2, 246, 149, 0.03) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(0, 234, 211, 0.05) 0%, transparent 70%);
   z-index: 1;
 }
 
-.catalogo-hero { text-align: center; margin-bottom: 50px; position: relative; z-index: 2; }
+.catalogo-hero { text-align: center; 
+  margin-bottom: 60px; /* Más espacio respecto a los filtros */
+  position: relative; 
+  z-index: 2; }
 
 .tag-neon { 
   display: flex; align-items: center; justify-content: center; gap: 10px; 
-  color: #02f695; margin-bottom: 15px; font-weight: 900; letter-spacing: 4px; font-size: 0.8rem;
+  color: var(--aqua-main); 
+  margin-bottom: 15px; 
+  font-weight: 800; 
+  letter-spacing: 5px; 
+  font-size: 1rem;
+  text-shadow: 0 0 10px var(--aqua-glow);
 }
 
-.catalogo-hero h1 { font-size: clamp(2.5rem, 5vw, 3.5rem); font-weight: 900; letter-spacing: -2px; }
-.catalogo-hero h1 span { color: #02f695; }
+.catalogo-hero h1 { font-size: clamp(2.5rem, 5vw, 3.8rem); font-weight: 900; letter-spacing: -2px; }
+.catalogo-hero h1 span { color: var(--aqua-main); }
 
-/* Filtros minimalistas */
-.filter-container { display: flex; justify-content: center; gap: 10px; margin-bottom: 60px; position: relative; z-index: 2; }
+/* Filtros Aqua */
+.filter-container { display: flex; justify-content: center; gap: 15px; margin-bottom: 60px; position: relative; z-index: 2; }
 
 .filter-container button {
-  background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6); padding: 10px 25px; border-radius: 50px; 
-  cursor: pointer; font-weight: 700; transition: 0.3s;
+  background: rgba(255, 255, 255, 0.05); 
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: rgba(255, 255, 255, 0.7); 
+  padding: 12px 28px; 
+  border-radius: 50px; 
+  cursor: pointer; 
+  font-weight: 700; 
+  transition: 0.3s;
 }
 
 .filter-container button.active { 
-  background: #02f695; color: #0e1f3b; border-color: #02f695;
-  box-shadow: 0 0 20px rgba(2, 246, 149, 0.3); 
+  background: var(--aqua-main); 
+  color: var(--navy-bg); 
+  border-color: var(--aqua-main);
+  box-shadow: 0 0 20px var(--aqua-glow); 
 }
 
-/* Grid de 3 columnas */
+/* GRID: Más espacio entre cards */
 .catalogo-grid-3x3 {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 25px; max-width: 1300px; margin: 0 auto; position: relative; z-index: 2;
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 35px; 
+  max-width: 1300px; 
+  margin: 0 auto; 
+  position: relative; 
+  z-index: 2;
 }
 
-/* CARD MEJORADA: Menos texto, más visual */
+/* --- TARJETA DE CATÁLOGO (Igual que Paquetes) --- */
 .catalogo-card-visual {
-  background: #164075 !important;
+  background: var(--navy-card) !important;
   border: 1px solid rgba(255, 255, 255, 0.05) !important;
-  border-radius: 24px !important;
-  display: flex !important; flex-direction: column !important;
-  overflow: hidden; transition: 0.4s ease !important;
+  border-radius: 32px !important;
+  display: flex !important; 
+  flex-direction: column !important;
+  padding: 15px; /* Margen interno para que nada toque los bordes */
+  overflow: hidden; 
+  transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275) !important;
 }
 
 .catalogo-card-visual:hover {
-  transform: translateY(-10px);
-  border-color: #02f695 !important;
-  box-shadow: 0 20px 40px rgba(0,0,0,0.4) !important;
+  transform: translateY(-12px);
+  border-color: var(--aqua-main) !important;
+  box-shadow: 0 25px 50px rgba(0,0,0,0.5), 0 0 25px var(--aqua-glow) !important;
 }
 
 .card-visual-header {
-  height: 200px; position: relative;
+  height: 250px; 
+  position: relative;
   display: flex; justify-content: center; align-items: center;
-  background: radial-gradient(circle at center, rgba(55, 164, 220, 0.1), transparent 70%);
+  background: radial-gradient(circle at center, var(--aqua-glow), transparent 75%);
+  border-radius: 24px;
+  margin-bottom: 10px;
 }
 
 .product-img-float {
-  max-height: 85%; width: auto; z-index: 2;
-  filter: drop-shadow(0 15px 30px rgba(0,0,0,0.5));
-  transition: 0.4s ease;
+ /* Para que no se vea amontonada */
+  max-height: 112%;
+  animation: none !important;
+  transform:  none !important;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+  transition: transform 0.4s ease;
 }
 
-.catalogo-card-visual:hover .product-img-float { transform: scale(1.1); }
+.catalogo-card-visual:hover .product-img-float { 
+  transform: scale(1.08); 
+}
 
-/* Glows dinámicos */
-.glow-effect { position: absolute; width: 100px; height: 100px; border-radius: 50%; filter: blur(50px); opacity: 0.4; z-index: 1; }
-.glow-fibra { background: #37a4dc; }
-.glow-antena { background: #02f695; }
+/* Glows dinámicos actualizados */
+.glow-fibra { background: var(--aqua-main); }
+.glow-antena { background: #0088ff; }
 .glow-seguridad { background: #ffffff; }
 
 .tech-badge {
   position: absolute; top: 15px; left: 20px;
-  background: rgba(0,0,0,0.3); backdrop-filter: blur(5px);
-  padding: 4px 12px; border-radius: 6px; font-size: 0.6rem; font-weight: 900; letter-spacing: 1px;
+  background: rgba(0,0,0,0.4); 
+  backdrop-filter: blur(8px);
+  color: var(--aqua-main);
+  padding: 6px 14px; 
+  border-radius: 8px; 
+  font-size: 0.7rem; 
+  font-weight: 900; 
+  letter-spacing: 1.5px;
+  border: 1px solid rgba(0, 234, 211, 0.2);
 }
 
-/* Cuerpo de la card simplificado */
-.card-body { padding: 25px; flex: 1; display: flex; flex-direction: column; }
+/* Cuerpo con letras más grandes */
+.card-body { padding: 20px 10px; flex: 1; display: flex; flex-direction: column; gap: 15px; }
 
-.card-info-main { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
-
-.card-body h3 { font-size: 1.3rem; font-weight: 800; margin: 0; }
+.card-body h3 { 
+  font-size: 1.8rem; /* Letra más grande para el título del plan */
+  font-weight: 900; 
+  margin: 0; 
+  color: #ffffff;
+}
 
 .cat-speed-pill {
-  background: rgba(55, 164, 220, 0.1); color: #37a4dc;
-  padding: 4px 10px; border-radius: 6px; font-size: 0.8rem; font-weight: 800;
+  background: rgba(0, 234, 211, 0.1); 
+  color: var(--aqua-main);
+  
+  /* ESTO ES LO IMPORTANTE: */
+  width: fit-content;      /* Hace que el fondo solo cubra el texto */
+  padding: 6px 16px;       /* Espacio interno para que respire */
+  
+  border-radius: 10px; 
+  font-size: 0.9rem; 
+  font-weight: 800;
+  border: 1px solid rgba(0, 234, 211, 0.2);
+  
+  /* Para que no esté pegado al título de arriba */
+  margin-top: 5px; 
+  display: inline-flex;    /* Ayuda a que se alinee mejor */
+  align-items: center;
 }
+
 
 .cat-price { 
-  font-size: 2.8rem; font-weight: 900; margin-bottom: 25px; 
-  letter-spacing: -2px; display: flex; align-items: baseline;
+  font-size: 3rem; /* Precio imponente */
+  font-weight: 900; 
+  margin-top: 10px;
+  letter-spacing: -2px; 
+  display: flex; 
+  align-items: baseline;
 }
 
-.cat-price .symbol { color: #02f695; font-size: 1.2rem; margin-right: 4px; }
-.cat-price small { font-size: 0.9rem; opacity: 0.4; letter-spacing: 0; margin-left: 4px; }
+.cat-price .symbol { color: var(--aqua-main); font-size: 1.5rem; margin-right: 4px; }
+.cat-price small { font-size: 1rem; color: var(--text-dim); margin-left: 6px; }
 
 .mt-auto { margin-top: auto !important; }
 .w-full { width: 100%; }
+
+@media (max-width: 768px) {
+  .vk-catalogo-page {
+    padding-top: 120px;
+  }
+}
