@@ -10,6 +10,12 @@ export function Hero() {
     const msg = encodeURIComponent(`¡Hola! Vengo de su pagina Web, quiero saber más`);
     window.open(`https://wa.me/5218123921000?text=${msg}`, '_blank');
   };
+  const scrollToPlanes = () => {
+      const section = document.getElementById('paquetes');
+      if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <section id="Inicio" className="vk-hero">
@@ -51,7 +57,7 @@ export function Hero() {
             <Button variant="primary" className="btn-hero-main" onClick={handleContratar}>
               CONTRATAR AHORA
             </Button>
-            <Button variant="outline" className="btn-hero-sec" >
+            <Button variant="outline" onClick={scrollToPlanes} className="btn-hero-sec" >
               VER PLANES
             </Button>
           </div>

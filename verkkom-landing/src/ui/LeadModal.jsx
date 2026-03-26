@@ -15,7 +15,7 @@ export function LeadModal({ isOpen, onClose, selectedPlan }) {
 
     const mensaje = encodeURIComponent(
       `¡Hola Verkkom! \n\n` +
-      `Me interesa contratar. Aquí mis datos:\n\n` +
+      `Me interesa saber más de sus servicios. Aquí mis datos:\n\n` +
       `${planTexto}\n` + // <--- Aquí se añade el plan automáticamente
       `*Nombre:* ${formData.nombre}\n` +
       `*Teléfono:* ${formData.telefono}\n` +
@@ -32,7 +32,7 @@ export function LeadModal({ isOpen, onClose, selectedPlan }) {
       <div className="modal-content">
         <button className="close-btn" onClick={onClose}><X /></button>
         <h3>¡Casi listo! 🚀</h3>
-        <p>{selectedPlan ? `Estás a un paso de contratar: ${selectedPlan}` : 'Déjanos tus datos para contactarte.'}</p>
+        <p>{selectedPlan ? `Seleccionaste el paquete: ${selectedPlan}` : 'Apoyanos con tus datos para una asesoria mas personalizada.'}</p>
 
         <form onSubmit={handleSubmit}>
           <div className="input-group">
