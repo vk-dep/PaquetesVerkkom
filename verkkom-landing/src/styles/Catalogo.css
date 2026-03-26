@@ -183,67 +183,118 @@ background-color: var(--navy-bg);
 .mt-auto { margin-top: auto !important; }
 .w-full { width: 100%; }
 
-/* 2. RESPONSIVO PARA CELULARES (Mobile First / Adjustments) */
-@media (max-width: 768px) {
-  /* Ajustamos el espacio de la página */
-  .vk-catalogo-page {
-    padding: 100px 5% 40px; /* Menos espacio a los lados en celular */
-  }
-
-  /* El título principal más chico para que no rompa */
-  .catalogo-hero h1 {
-    font-size: 2.2rem;
-    line-height: 1.1;
-  }
-
-  /* Los filtros: hacemos que se puedan desplazar de lado si son muchos */
-  .filter-container {
-    gap: 8px;
-    margin-bottom: 40px;
-    flex-wrap: wrap; /* O 'overflow-x: auto' si prefieres scroll lateral */
-    justify-content: center;
-  }
-
-  .filter-container button {
-    padding: 8px 18px;
-    font-size: 0.9rem;
-  }
-
-  /* La Tarjeta en Móvil */
+/* --- ESTILO PARA MÓVIL (Media Query) --- */
+@media (max-width: 480px) {
+  
+  /* 1. Ajuste de la Card */
   .catalogo-card-visual {
-    border-radius: 20px !important;
-    max-width: 380px; /* Que no se vea gigante */
-    margin: 0 auto;   /* Centrada */
+    background: #0f2547 !important; /* Azul marino de la imagen */
+    padding: 20px !important;
+    border-radius: 24px !important;
+    max-width: 100%;
+    margin: 0 auto 20px;
   }
 
+  /* 2. Barra Superior (FIBRA y Teléfono) */
+  .card-top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    font-size: 0.8rem;
+    font-weight: 800;
+  }
+
+  /* 3. El contenedor de la imagen */
   .card-visual-header {
-    height: 200px; /* Un poco más bajito en móvil para ahorrar espacio */
+    height: 180px; /* Altura ideal para móvil */
+    background: radial-gradient(circle, rgba(0, 234, 211, 0.1) 0%, transparent 70%);
+    margin-bottom: 20px;
   }
 
-  /* El cuerpo de la tarjeta */
-  .card-body {
-    padding: 20px;
-    text-align: left; /* Mantenemos el texto a la izquierda */
+  .product-img-float {
+    max-width: 80% !important;
+    height: auto;
   }
 
+  /* 4. Textos Principales */
   .card-body h3 {
-    font-size: 1.5rem; /* Texto más cómodo para el pulgar */
+    font-size: 1.8rem !important; /* Grande como en la foto */
+    margin-bottom: 5px;
+    text-align: left;
+  }
+
+  .subtitle-contrata {
+    color: #ffffff;
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    display: block;
+    text-align: left;
+  }
+
+  /* 5. Lista de Beneficios (Las flechitas) */
+  .benefit-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px 0;
+    text-align: left;
+  }
+
+  .benefit-list li {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  /* 6. Fila de Precio y Megas (Lado a lado) */
+  .card-footer-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end; /* Alinea por la base */
+    margin-bottom: 25px;
   }
 
   .cat-price {
-    font-size: 2.4rem;
-    margin-top: 15px;
+    font-size: 3rem !important;
+    margin: 0 !important;
+    color: var(--aqua-main) !important;
+    display: flex;
+    flex-direction: column;
+    line-height: 0.8;
   }
-  .product-img-float {
-  /* Para que no se vea amontonada */
-    max-height: 112%;
-    animation: none !important;
-    transform:  none !important;
-    width: auto;
-    height: auto;
-    object-fit: contain;
-    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
-    transition: transform 0.4s ease;
+
+  .cat-price small {
+    font-size: 1rem;
+    color: #ffffff;
+    opacity: 0.6;
+    margin-left: 5px;
+  }
+
+  .speed-badge-box {
+    background: #1a3a63;
+    padding: 10px 15px;
+    border-radius: 12px;
+    text-align: center;
+    min-width: 80px;
+  }
+
+  .speed-badge-box .num { font-size: 1.2rem; font-weight: 900; display: block; }
+  .speed-badge-box .txt { font-size: 0.7rem; display: block; opacity: 0.8; }
+
+  /* 7. Botón Contratar */
+  .btn-contratar-outline {
+    width: 100%;
+    background: transparent;
+    border: 2px solid var(--aqua-main);
+    color: var(--aqua-main);
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 800;
+    text-transform: uppercase;
   }
 }
 
