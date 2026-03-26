@@ -230,6 +230,28 @@ background-color: var(--navy-bg);
     left: 15px;
     z-index: 3;
   }
+
+    /* Ajuste de Filtros para Celular */
+  .filter-container {
+    display: flex;
+    overflow-x: auto; /* Permite deslizar si no caben */
+    white-space: nowrap;
+    padding: 10px 5% 20px;
+    gap: 12px;
+    justify-content: flex-start; /* Alinea al inicio para el scroll */
+    scrollbar-width: none; /* Oculta scroll en Firefox */
+    -webkit-overflow-scrolling: touch; /* Scroll suave en iPhone */
+  }
+
+  .filter-container::-webkit-scrollbar {
+    display: none; /* Oculta el scrollbar en Chrome y Safari */
+  }
+
+  .filter-container button {
+    flex: 0 0 auto; /* Evita que los botones se encojan */
+    padding: 10px 22px;
+    font-size: 0.9rem;
+  }
 }
 /* 3. AJUSTE EXTRA PARA PANTALLAS MUY CHICAS (iPhone SE, etc) */
 @media (max-width: 380px) {
