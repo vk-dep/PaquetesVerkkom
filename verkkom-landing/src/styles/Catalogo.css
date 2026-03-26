@@ -234,6 +234,17 @@ background-color: var(--navy-bg);
     font-size: 2.4rem;
     margin-top: 15px;
   }
+  .product-img-float {
+  /* Para que no se vea amontonada */
+    max-height: 112%;
+    animation: none !important;
+    transform:  none !important;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 30px rgba(0, 0, 0, 0.4));
+    transition: transform 0.4s ease;
+  }
 }
 
 /* 3. AJUSTE EXTRA PARA PANTALLAS MUY CHICAS (iPhone SE, etc) */
